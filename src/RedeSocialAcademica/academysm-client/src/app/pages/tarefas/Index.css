@@ -1,0 +1,111 @@
+:root {
+    --vermelho: #c32323;
+    --azul: #0047FD;
+    --verde: #25BF7E;
+    --cinza-medio: #d9d9d9;
+}
+
+.aba-tarefas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tarefas {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.tarefas-atrasadas,
+.tarefas-abertas,
+.tarefas-enviadas 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.tarefa-atrasada,
+.tarefa-aberta,
+.tarefa-enviada 
+{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    height: 150px;
+    width: 800px;
+    background-color: white;
+    color: black;
+    border-radius: 100px;
+}
+
+.tarefa-atrasada-button,
+.tarefa-aberta-button,
+.tarefa-enviada-button 
+{
+    width: 125px;
+    height: 150px;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-top-left-radius: 75px;
+    border-bottom-left-radius: 75px;
+}
+
+.tarefa-atrasada-button {
+    background-color: var(--vermelho);
+}
+
+.tarefa-aberta-button {
+    background-color: var(--azul);
+}
+
+.tarefa-enviada-button {
+    background-color: var(--verde);
+}
+
+.task-description {
+    margin: 30px;
+}
+
+.barra-conclusao {
+    width: 60vw;
+    background-color: var(--cinza-medio);
+    height: 20px;
+    border-radius: 10px;
+}
+
+.barra-demonstrativa {
+    height: inherit;
+    width: 54vw;
+    background-color: var(--azul);
+    border-radius: 10px;
+}
+
+@media (max-width: 800px) and (min-width: 426px) {
+    .tarefa-atrasada,
+    .tarefa-aberta,
+    .tarefa-enviada 
+    {
+        width: 700px;
+    }
+} 
+
+@media (max-width: 425px) {
+    .tarefa-atrasada,
+    .tarefa-aberta,
+    .tarefa-enviada 
+    {
+        width: 300px;
+        font-size: 18px;
+    }
+}

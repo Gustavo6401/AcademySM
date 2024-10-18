@@ -1,0 +1,18 @@
+.politicaPrivacidade {
+    background-color: white;
+    margin: 10px;
+}
+
+.politicaPrivacidade p {
+    text-align: left;
+}
+ 
+.politicaPrivacidade h1, 
+.politicaPrivacidade h3, 
+.politicaPrivacidade label, 
+.politicaPrivacidade h2,
+.politicaPrivacidade h4,
+.politicaPrivacidade b
+{
+    margin: 15px;
+}

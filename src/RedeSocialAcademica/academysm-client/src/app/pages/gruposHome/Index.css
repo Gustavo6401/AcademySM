@@ -1,0 +1,113 @@
+:root {
+    --vermelho: #c32323;
+}
+
+.groupsHomePage {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.groups-index {
+    display: block;
+    width: 74vw;
+}
+
+.group-description-display-none {
+    background-color: var(--vermelho);
+    display: none;
+}
+
+.create-post {
+    background-color: white;
+    padding: 20px;
+    width: 73vw;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.post-photo {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    margin-left: 20px;
+}
+
+.post-input {
+    width: 50vw;
+    font-size: 20px;
+    border-radius: 30px;
+    margin-right: 20px;
+    border: 1px solid;
+}
+
+.post {
+    display: block;
+    background-color: white;
+    width: 73vw;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.post-title,
+.post-text
+{
+    margin: 30px;
+}
+
+.post-title {
+    font-size: 50px;
+}
+
+.post-text {
+    font-size: 20px;
+}
+
+.post-image {
+    width: inherit;
+    height: inherit;
+}
+
+.group-component-description {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .group-description-display-none {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        width: 100vw;
+        color: white;
+        margin-left: 0px;
+    }
+
+    .groups-index {
+        display: none;
+    }
+
+    .group-component-description {
+        display: block;
+        width: 100vw;
+        color: white;
+    }
+
+    .group-description-title,
+    .group-description-text 
+    {
+        margin: 10px;
+    }
+
+    .group-description-title {
+        font-size: 50px;
+    }
+
+    .group-description-text {
+        font-size: 20px;
+    }
+}

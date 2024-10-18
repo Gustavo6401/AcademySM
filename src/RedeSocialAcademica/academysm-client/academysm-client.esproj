@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.128-alpha">
+  <PropertyGroup>
+    <StartupCommand>npm run dev</StartupCommand>
+    <JavaScriptTestRoot>src\</JavaScriptTestRoot>
+    <JavaScriptTestFramework>Jest</JavaScriptTestFramework>
+    <!-- Allows the build (or compile) script located on package.json to run on Build -->
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <!-- Folder where production build objects will be placed -->
+    <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist</PublishAssetsDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\app\assets\fonts\" />
+    <Folder Include="src\app\components\dailyComponents\chat\" />
+    <Folder Include="src\app\components\dailyComponents\meetingInformation\" />
+    <Folder Include="src\app\components\dailyComponents\icons\" />
+    <Folder Include="src\app\components\dailyComponents\tray\" />
+    <Folder Include="src\app\components\dailyComponents\userMediaError\" />
+    <Folder Include="src\app\components\dailyComponents\username\" />
+    <Folder Include="src\app\components\dailyComponents\tile\" />
+    <Folder Include="src\app\components\navbar\" />
+    <Folder Include="src\app\components\navbarWhite\" />
+    <Folder Include="src\app\components\courseStatus\" />
+    <Folder Include="src\app\components\courseComponent\" />
+    <Folder Include="src\app\components\academySMText\" />
+    <Folder Include="src\app\components\categoriesMenu\" />
+    <Folder Include="src\app\components\dailyComponents\call\" />
+    <Folder Include="src\app\components\NovaPasta\" />
+    <Folder Include="src\app\components\sendSomething\" />
+    <Folder Include="src\app\components\question\" />
+    <Folder Include="src\app\components\post\" />
+    <Folder Include="src\app\modal\sendAssignment\" />
+    <Folder Include="src\app\modal\NovaPasta\" />
+    <Folder Include="src\app\pages\cadastroUsuario\" />
+    <Folder Include="src\app\pages\login\" />
+    <Folder Include="src\app\pages\detalhesUsuario\" />
+    <Folder Include="src\app\pages\grupos\" />
+    <Folder Include="src\app\pages\editarDadosUsuario\" />
+    <Folder Include="src\app\pages\gruposHome\" />
+    <Folder Include="src\app\pages\duvidas\" />
+    <Folder Include="src\app\pages\duvida\" />
+    <Folder Include="src\app\pages\artigos\" />
+    <Folder Include="src\app\pages\avisos\" />
+    <Folder Include="src\app\pages\chat\" />
+    <Folder Include="src\app\pages\postagens\" />
+    <Folder Include="src\app\pages\passwordGenerator\" />
+    <Folder Include="src\domain\models\apis\groups\return\" />
+    <Folder Include="src\domain\models\apis\user\" />
+    <Folder Include="src\domain\models\viewModels\" />
+    <Folder Include="src\domain\services\passwordValidator\allCharacterTypes\strategy\" />
+    <Folder Include="src\infra\api\utils\" />
+    <Folder Include="src\infra\api\user\" />
+    <Folder Include="src\infra\crypto\keys\" />
+    <Folder Include="src\infra\api\dailyRooms\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptConfiguration Remove="src\app\NovaPasta1\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\NovaPasta1\**" />
+  </ItemGroup>
+</Project>

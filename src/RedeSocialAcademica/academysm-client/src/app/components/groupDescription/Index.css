@@ -1,0 +1,18 @@
+.group-description {
+    background-color: var(--vermelho);
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    align-items: center;
+    width: 73vw;
+    color: white;
+}
+
+.groupCategoryIcon {
+    font-size: 50px;
+    margin: 25px;
+}
+
+.conclusionPercentage {
+    font-size: 20px;
+}

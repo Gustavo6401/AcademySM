@@ -1,0 +1,8 @@
+.edu-backgrounds {
+    background-color: white;
+    display: block;
+}
+
+.edu-backgrounds div {
+    margin: 5px;
+}

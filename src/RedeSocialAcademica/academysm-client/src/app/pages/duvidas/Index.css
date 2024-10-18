@@ -1,0 +1,30 @@
+.duvidas {
+    width: 74vw;
+}
+
+.duvidaMainContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.perguntas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.duvidaPage {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+    .duvidas {
+        width: 95vw;
+    }
+}

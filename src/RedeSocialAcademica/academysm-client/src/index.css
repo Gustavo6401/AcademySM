@@ -1,0 +1,32 @@
+:root {
+    --vermelho: #c32323;
+    --preto-apagado: #101010cc;
+}
+
+@font-face {
+    font-family: Assistant;
+    src: url('app/assets/fonts/Assistant/Assistant-VariableFont_wght.ttf')
+}
+
+@font-face {
+    font-family: Inika;
+    src: url('app/assets/fonts/Inika/Inika-Regular.ttf')
+}
+
+@font-face {
+    font-family: Audiowide;
+    src: url('app/assets/fonts/Audiowide/Audiowide-Regular.ttf');
+}
+
+.centralizador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+    font-family: Assistant;
+    background: linear-gradient(to bottom left, var(--vermelho), var(--preto-apagado));
+}

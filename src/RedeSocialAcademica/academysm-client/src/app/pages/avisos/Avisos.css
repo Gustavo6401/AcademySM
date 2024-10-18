@@ -1,0 +1,9 @@
+.avisos {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.createNewAviso {
+    margin: 10px;
+}

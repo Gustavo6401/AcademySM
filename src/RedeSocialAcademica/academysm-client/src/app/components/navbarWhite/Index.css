@@ -1,0 +1,78 @@
+:root {
+    --vermelho: #c32323;
+    --cinza: #F1F0F0;
+}
+
+.navbar-white {
+    font-family: "Assistant";
+    display: flex;
+    background-color: white;
+    color: var(--vermelho);
+    padding: 20px;
+    align-items: center;
+}
+
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nav-white-toggle-item {
+    width: 25px;
+    height: 3px;
+    background-color: #c32323;
+    margin: 3px 0;
+}
+
+.barra-navegacao-branca {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+.nav-white-link {
+    color: var(--vermelho);
+    text-decoration: none;
+    padding: 9px 9px;
+    font-size: 20px;
+}
+
+.inika {
+    font-family: Inika;
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .navbar-toggle {
+        display: flex;
+        margin-right: 5vw;
+        float: right;
+    }
+
+    .barra-navegacao-white {
+        flex-direction: column;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease-out;
+    }
+
+        .barra-navegacao-white.closed {
+            max-height: 0;
+        }
+
+        .barra-navegacao-white.open {
+            max-height: 300px;
+        }
+}

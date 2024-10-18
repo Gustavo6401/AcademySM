@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\images\\03102024-134320-c_sharp.png",
+      "PackagePath": "staticwebassets\\images\\03102024-134320-c_sharp.png"
+    },
+    {
+      "Id": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\images\\2024-10-03 13-50-09Z-merda.jpeg",
+      "PackagePath": "staticwebassets\\images\\2024-10-03 13-50-09Z-merda.jpeg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FileServer.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.FileServer.props",
+      "PackagePath": "build\\FileServer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.FileServer.props",
+      "PackagePath": "buildMultiTargeting\\FileServer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.FileServer.props",
+      "PackagePath": "buildTransitive\\FileServer.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

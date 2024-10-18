@@ -1,0 +1,39 @@
+:root {
+    --vermelho: --#c32323;
+}
+
+.taskPage {
+    width: 74vw;
+}
+
+.paginaTarefa {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.voltarAbaTarefas {
+    background-color: var(--vermelho);
+    width: inherit;
+    height: 100px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+
+.voltarAbaTarefas div,
+.voltarAbaTarefas label {
+    margin-left: 50px;
+}
+
+@media (max-width: 768px) {
+    .voltarAbaTarefas {
+        width: 100vw;
+    }
+
+    .taskPage {
+        width: 100vw;
+    }
+}

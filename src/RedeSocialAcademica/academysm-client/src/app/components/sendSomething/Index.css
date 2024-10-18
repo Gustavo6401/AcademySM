@@ -1,0 +1,45 @@
+.enviarArtigo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background-color: white;
+    width: 74vw;
+    padding: 10px;
+}
+
+.fotoArtigo {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.botaoEnviarArtigo {
+    background-color: var(--cinzaMaisClaro);
+    border: none;
+    width: 60vw;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 2em;
+    text-align: start;
+}
+
+@media (max-width: 768px) {
+    .enviarArtigo {
+        width: 100vw;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
+    .botaoEnviarArtigo {
+        width: 80vw;
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 500px) {
+    .botaoEnviarArtigo {
+        width: 70vw;
+        font-size: 1em;
+    }
+}

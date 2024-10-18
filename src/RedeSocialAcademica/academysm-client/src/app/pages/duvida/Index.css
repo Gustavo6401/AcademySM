@@ -1,0 +1,92 @@
+.duvida {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.duvidaMainComponent {
+    display: block;
+}
+
+.perguntaDoUsuario {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: row;
+}
+
+.duvidaVotes {
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.duvidaVoteButton {
+    font-size: 3em;
+}
+
+.writeYourResponse {
+    display: block;
+    background-color: white;
+    justify-content: end;
+    margin-left: 70px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.escreverResposta {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+}
+
+.responseProfilePic {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left: 60px;
+}
+
+.writeResponseButton {
+    width: 60vw;
+    background-color: white;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 2px solid black;
+    margin-left: 30px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    cursor: default;
+}
+
+@media (max-width: 1440px) and (min-width: 450px) {
+    .writeResponseButton {
+        max-width: 50vw;
+    }
+}
+
+@media (max-width: 450px) {
+    .writeResponseButton {
+        max-width: 30vw;
+        font-size: 10px;
+    }
+
+    .writeYourResponse {
+        max-width: 250px;
+        margin-left: 30px;
+    }
+
+    .contentDescription {
+        max-width: 300px;
+    }
+
+    .duvidaVotes {
+        max-width: 30px;
+    }
+}

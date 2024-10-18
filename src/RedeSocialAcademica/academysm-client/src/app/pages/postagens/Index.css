@@ -1,0 +1,110 @@
+:root {
+    --vermelho: #c32323;
+}
+
+.groupsHomePage {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.groups-index {
+    display: block;
+    width: 74vw;
+}
+
+.group-description {
+    background-color: var(--vermelho);
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    align-items: center;
+    width: 73vw;
+    color: white;
+}
+
+.group-description-display-none {
+    background-color: var(--vermelho);
+    display: none;
+}
+
+.groupCategoryIcon {
+    font-size: 50px;
+    margin: 25px;
+}
+
+.conclusionPercentage {
+    font-size: 20px;
+}
+
+.create-post {
+    background-color: white;
+    padding: 20px;
+    width: 73vw;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.post-photo {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    margin-left: 20px;
+}
+
+.post-input {
+    width: 50vw;
+    font-size: 20px;
+    border-radius: 30px;
+    margin-right: 20px;
+    border: 1px solid;
+}
+
+.post {
+    display: block;
+    background-color: white;
+    width: 73vw;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.post-title,
+.post-text {
+    margin: 30px;
+}
+
+.post-title {
+    font-size: 50px;
+}
+
+.post-text {
+    font-size: 20px;
+}
+
+.post-image {
+    width: inherit;
+    height: inherit;
+}
+
+.group-component-description {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .barra-navegacao-grupos {
+        display: none;
+    }
+
+    .groups-index,
+    .group-description,
+    .create-post,
+    .post {
+        width: 100vw;
+    }
+
+
+}

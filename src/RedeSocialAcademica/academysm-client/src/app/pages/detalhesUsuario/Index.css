@@ -1,0 +1,115 @@
+:root {
+    --vermelho: #c32323;
+}
+
+.detalhesUsuario {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.levelAndCourses {
+    background-color: white;
+    width: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.levelTitle {
+    text-align: center;
+}
+
+.levelHexagon {
+    width: 250px;
+    height: 250px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.internalLevelHexagon {
+    background-color: white;
+    width: 240px;
+    height: 240px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.levelTitle {
+    font-family: Audiowide;
+}
+
+/* 
+    Eixo x - justify-content
+    Eixo y - align-items
+*/
+.courseComponent {
+    background-color: var(--vermelho);
+    color: white;
+    font-size: 20px;
+    width: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+}
+
+.middleComponentUserDetails {
+    background-color: white;
+    display: flex;
+    width: 45vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.componentRoundImage {
+    width: 300px;
+    height: 300px;
+    border-radius: 200px;
+}
+
+.formationComponent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+
+.batePaposEmGrupo {
+    background-color: white;
+    width: 25vw;
+}
+
+/* Para resoluções entre 1280px e 768px */
+@media (max-width: 1280px) and (min-width: 768px) {
+    .batePaposEmGrupo {
+        display: none;
+    }
+
+    .middleComponentUserDetails {
+        width: 66vw;
+    }
+
+    .levelAndCourses {
+        width: 33vw;
+    }
+}
+
+/* Para resoluções abaixo de 768px */
+@media (max-width: 768px) {
+    .batePaposEmGrupo, .levelAndCourses {
+        display: none;
+    }
+
+    .middleComponentUserDetails {
+        width: 100vw; /* Faz a div ocupar toda a largura disponível */
+    }
+}

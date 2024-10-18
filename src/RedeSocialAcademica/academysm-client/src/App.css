@@ -1,0 +1,257 @@
+:root {
+    --azul-escuro: #0d208b;
+    --azul: #0047FD;
+    --vermelho: #c32323;
+    --cinza: #F1F0F0;
+    --verde: #25BF7E;
+}
+
+.componentIsolator-1 {
+    margin: 10px;
+}
+
+.componentIsolator-2 {
+    margin: 20px;
+}
+
+.formInputType-1 {
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid;
+    font-size: 20px;
+    font-family: Assistant;
+}
+
+.button-large {
+    padding: 20px;
+    border-radius: 30px;
+    border: none;
+    font-family: Assistant;
+    font-size: 15px;
+}
+
+.azul-escuro {
+    color: white;
+    background-color: var(--azul-escuro);
+}
+
+.vermelho {
+    background-color: var(--vermelho);
+    color: white;
+}
+
+.textArea-1 {
+    width: 200px;
+    height: 100px;
+    border-radius: 15px;
+    border: 2px solid;
+    font-size: 20px;
+    font-family: Assistant;
+}
+
+.align-components {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-family: Assistant;
+}
+
+.button-medium {
+    padding: 5px 10px;
+    border-radius: 25px;
+    border: none;
+    font-family: Assistant;
+    font-size: 20px;
+}
+
+.button-xlarge {
+    padding: 20px 40px;
+    border-radius: 60px;
+    border: none;
+    font-size: 20px;
+    font-family: Assistant;
+}
+
+.imagemQuadrada-logoAcademySM {
+    width: 250px;
+    height: 250px;
+}
+
+.cinza {
+    background-color: var(--cinza);
+    color: var(--vermelho);
+}
+
+.alinhadoEsquerda {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.formInputType-2 {
+    width: 400px;
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid;
+    font-size: 20px;
+    font-family: Assistant;
+}
+
+.hexagon {
+    clip-path: polygon(0% 75%, 0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%);
+}
+
+.audiowide {
+    font-family: Audiowide;
+}
+
+.smallCircle {    
+    clip-path: circle();
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.branco {
+    background-color: white;
+    color: var(--vermelho);
+}
+
+.centralizador-2 {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.formInputType-3 {
+    margin: 5px;
+    border-radius: 20px;
+    border: 1px solid;
+}
+
+.fontExtraLarge {
+    font-size: 50px;
+}
+
+.fontLarge {
+    font-size: 40px;
+}
+
+.fontMedium {
+    font-size: 30px;
+}
+
+.fontSmall {
+    font-size: 25px;
+}
+
+.fontMinimum {
+    font-size: 20px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.azul {
+    background-color: var(--azul);
+    color: white;
+}
+
+.verde {
+    background-color: var(--verde);
+    color: white;
+}
+
+.floatRight {
+    float: right;
+}
+
+.rowItems {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: inherit;
+    align-items: start;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 16px;
+    color: black;
+}
+
+.modal-close-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+@media (max-width: 768px) {
+    .centralizador-3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .formInputType-1 {
+        max-width: 100px;
+        font-size: 8px;
+        max-height: 20px;
+    }
+
+    .fontMedium {
+        font-size: 15px;
+    }
+
+    .button-medium {
+        font-size: 8px;
+    }
+
+    .button-xlarge {
+        font-size: 20px;
+    }
+}

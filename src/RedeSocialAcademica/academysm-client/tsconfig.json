@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "allowJs": true,
+    "jsx": "react-jsx", // Ou "react" dependendo da versão do React
+    "noImplicitAny": false, // Opcional, desativa os erros de 'any' implícito
+    "moduleResolution": "node", // Necessário para garantir a resolução correta dos módulos
+    "esModuleInterop": true, // Permite importar módulos CommonJS
+    "checkJs": false,    
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "downlevelIteration": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

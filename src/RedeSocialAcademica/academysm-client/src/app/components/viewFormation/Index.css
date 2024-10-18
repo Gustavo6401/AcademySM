@@ -1,0 +1,9 @@
+.viewFormation {
+    display: block;
+    background-color: white;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 450px;
+    font-size: 20px;
+}

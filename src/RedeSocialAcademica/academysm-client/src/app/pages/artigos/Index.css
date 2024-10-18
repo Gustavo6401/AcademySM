@@ -1,0 +1,51 @@
+:root {
+    --cinzaMaisClaro: #eeeeee;
+    --vermelho: #c32323;
+}
+
+.artigos {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.componentDownloadArticlePdf {
+    width: inherit;
+    margin-right: 40px;
+}
+
+.buttonDownloadArticlePdf {
+    width: inherit;
+    background-color: var(--vermelho);
+    color: white;
+    padding: 20px;
+    font-size: 3em;
+    border-radius: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+}
+
+.downloadArticleFilename {
+    margin: 20px;
+    font-size: 0.5em;
+}
+
+@media (min-width: 400px) and (max-width: 500px) {
+    .buttonDownloadArticlePdf {
+        font-size: 2em;
+    }
+}
+
+@media (min-width: 340px) and (max-width: 400px) {
+    .buttonDownloadArticlePdf {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 340px) {
+    .buttonDownloadArticlePdf {
+        font-size: 1em;
+    }
+}

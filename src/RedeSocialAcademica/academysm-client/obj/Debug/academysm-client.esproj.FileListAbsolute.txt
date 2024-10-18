@@ -1,0 +1,2 @@
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\C#\AcademySMMonolit\RedeSocialAcademica\academysm-client\obj\Debug\academysm-client.esproj.CoreCompileInputs.cache
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\academysm-client\obj\Debug\academysm-client.esproj.CoreCompileInputs.cache

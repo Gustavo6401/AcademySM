@@ -1,0 +1,84 @@
+:root {
+    --vermelho: #c32323;
+}
+
+.conteudoCurso {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.conteudoCursoMainContent {
+    width: 73vw;
+    color: white;
+    margin: 10px;
+}
+
+.userClass {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    background-color: white;
+    color: black;
+    height: 100px;
+    width: inherit;
+    border-radius: 50px;
+}
+
+.userClassButton {
+    background-color: var(--vermelho);
+    font-size: 4em;
+    color: white;
+    width: 100px;
+    height: inherit;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.classDescription {
+    margin: 20px;
+}
+
+.classTitle {
+    font-size: 2em;
+}
+
+.classFilesComponent {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+    .userClassButton {
+        font-size: 3em;
+        max-width: 80px;
+    }
+
+    .classTitle {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .conteudoCursoMainContent {
+        width: 99vw;
+        margin: 0;
+    }
+}
+
+@media (min-width: 550px) and (max-width: 768px) {
+    .classTitle {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 550px) {
+    .classTitle {
+        font-size: 1em;
+    }
+}

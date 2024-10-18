@@ -1,0 +1,30 @@
+.post {
+    display: block;
+    background-color: white;
+    width: 73vw;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.post-title,
+.post-text {
+    margin: 30px;
+}
+
+.postCarousel {
+    width: inherit;
+    height: inherit;
+}
+
+.post-title {
+    font-size: 50px;
+}
+
+.post-text {
+    font-size: 20px;
+}
+
+.post-image {
+    width: inherit;
+    height: inherit;
+}

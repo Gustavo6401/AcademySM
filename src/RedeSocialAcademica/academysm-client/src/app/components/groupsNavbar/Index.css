@@ -1,0 +1,24 @@
+.groupsPcButtons {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.buttonGroups {
+    width: 23vw;
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+@media (max-width: 600px) {
+    .groupsPcButtons {
+        width: 100vw;
+    }
+
+    .buttonGroups {
+        width: 97vw;
+    }
+}

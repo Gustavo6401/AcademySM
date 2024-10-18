@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "Hash": "FPkQptpUx9Mowo4pRzoZ05TeUkqkIT9boij0SWz5UT0=",
+  "Source": "FileServer",
+  "BasePath": "_content/FileServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "FileServer\\wwwroot",
+      "Source": "FileServer",
+      "ContentRoot": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\",
+      "BasePath": "_content/FileServer",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\images\\03102024-134320-c_sharp.png",
+      "SourceId": "FileServer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\",
+      "BasePath": "_content/FileServer",
+      "RelativePath": "images/03102024-134320-c_sharp.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\03102024-134320-c_sharp.png"
+    },
+    {
+      "Identity": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\images\\2024-10-03 13-50-09Z-merda.jpeg",
+      "SourceId": "FileServer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\",
+      "BasePath": "_content/FileServer",
+      "RelativePath": "images/2024-10-03 13-50-09Z-merda.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\2024-10-03 13-50-09Z-merda.jpeg"
+    }
+  ]
+}

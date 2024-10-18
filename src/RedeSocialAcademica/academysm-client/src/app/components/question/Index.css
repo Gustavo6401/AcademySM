@@ -1,0 +1,94 @@
+.questionComponent {
+    height: 150px;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 150px;
+    width: 70vw;
+    margin: 10px;
+}
+
+.questionButton {
+    height: inherit;
+    font-size: 50px;
+    width: 100px;
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 100px;
+}
+
+.questionMakerProfilePic {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.questionContent {
+    display: block;
+    margin: 50px;
+}
+
+.questionTitle {
+    font-size: 30px;
+}
+
+.questionMaker {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+    .questionContent {
+        margin: 20px;
+    }
+
+    .questionButton {
+        max-width: 80px;
+    }
+
+    .questionTitle {
+        font-size: 25px;
+    }
+
+    .questionComponent {
+        width: 95vw;
+    }
+}
+
+@media (max-width: 425px) {
+    .questionContent {
+        margin: 10px;
+    }
+
+    .questionTitle {
+        font-size: 15px;
+    }
+
+    .questionDescription {
+        font-size: 10px;
+    }
+
+    .questionComponent {
+        max-height: 100px;
+    }
+
+    .questionButton {
+        max-height: 100px;
+    }
+
+    .questionMakerProfilePic {
+        max-height: 20px;
+        max-width: 20px;
+    }
+}
