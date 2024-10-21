@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.github",
+    "\\.github\\ISSUE_TEMPLATE",
+    "\\src",
+    "\\src\\RedeSocialAcademica",
+    "\\src\\RedeSocialAcademica\\academysm-client"
   ],
-  "SelectedNode": "\\LICENSE",
+  "SelectedNode": "\\src\\RedeSocialAcademica\\academysm-client\\.env",
   "PreviewInSolutionExplorer": false
 }
