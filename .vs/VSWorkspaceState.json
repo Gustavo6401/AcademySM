@@ -2,11 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\.github",
-    "\\.github\\ISSUE_TEMPLATE",
     "\\src",
     "\\src\\RedeSocialAcademica",
     "\\src\\RedeSocialAcademica\\academysm-client"
   ],
-  "SelectedNode": "\\.github\\ISSUE_TEMPLATE\\feature_request.md",
+  "SelectedNode": "\\.github\\PULL_REQUEST_TEMPLATE.md",
   "PreviewInSolutionExplorer": false
 }
