@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.github",
-    "\\src",
-    "\\src\\RedeSocialAcademica",
-    "\\src\\RedeSocialAcademica\\academysm-client"
+    "\\src"
   ],
-  "SelectedNode": "\\.github\\PULL_REQUEST_TEMPLATE.md",
+  "SelectedNode": "\\CLA.md",
   "PreviewInSolutionExplorer": false
 }
