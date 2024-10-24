@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\docs",
+    "\\docs\\imgs",
     "\\src"
   ],
-  "SelectedNode": "\\CLA.md",
+  "SelectedNode": "\\docs\\Report a Bug.md",
   "PreviewInSolutionExplorer": false
 }
