@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yPZA8VWtYO7DO2rNq+Ye8QJeGPlMn9S6z6nGrAzUBDwdR29JlmVl3tusmf6LGOK9ntmenJdXLTS7so0Qy/zbcw==",
+  "dgSpecHash": "hD/npSBs+sihFtvAmZFvW6Bz08GT4UeNaSkOFU9jq0ua2uXDtT7YylOKQbsMXBwy8yqi+w9ssVEp1g51erfAzA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\RedeSocialAcademica\\CadastroUsuario\\CadastroUsuario.csproj",
+  "projectFilePath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\CadastroUsuario\\CadastroUsuario.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gustavo\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Gustavo\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",

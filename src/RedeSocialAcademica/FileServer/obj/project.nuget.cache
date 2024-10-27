@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SEetxuMlMnB9zwL4ksCpLCCkTIDsdMtBvRfN48uaitLihziBVtMmqDmvH4WklY79Oisp+d1UFDY4MCSRgYow7w==",
+  "dgSpecHash": "xwU+0fZ+gOxrkVegy4EWO2CD1umHsCiWdKKPuRXZHqutojMDG52h1n1/XnEUWLTOIa/YuBzqcfkxImmg9dwSfw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\RedeSocialAcademica\\FileServer\\FileServer.csproj",
+  "projectFilePath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\FileServer\\FileServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gustavo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.0\\microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
     "C:\\Users\\Gustavo\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

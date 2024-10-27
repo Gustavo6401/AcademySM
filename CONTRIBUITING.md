@@ -7,3 +7,4 @@ Vale lembrar que você é obrigado a concordar com os termos contados diretamente 
 Veja nossos outros Tutoriais para que você possa contribuir ativamente com a Academy SM:
 
 [Report a Bug.md](<docs/Report a Bug.md>)
+[Desenvolver a Academy SM](<docs/Development/README.md>)
