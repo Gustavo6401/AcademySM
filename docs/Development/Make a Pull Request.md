@@ -14,3 +14,12 @@ Para escrever uma nova Branch, sugiro que você escreva o nome da funcionalidade 
 
 Commite na sua própria branch.
 
+![Git - Enviando Alterações para o Repositório.](<../imgs/Git - Enviando Alterações para o Repositório.png>)
+
+## 4 - Faça seu Pull Request
+
+Escreva as Alterações feitas e a forma como poderemos testar.
+
+## 5 - Aguarde o "aceite".
+
+Aguarde que outro desenvolvedor aceite suas modificações.
