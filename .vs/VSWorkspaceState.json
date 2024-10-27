@@ -4,8 +4,10 @@
     "\\docs",
     "\\docs\\Development",
     "\\docs\\imgs",
-    "\\src"
+    "\\src",
+    "\\src\\RedeSocialAcademica",
+    "\\src\\RedeSocialAcademica\\academysm-client"
   ],
-  "SelectedNode": "\\docs\\Report a Bug.md",
+  "SelectedNode": "\\docs\\Development\\README.md",
   "PreviewInSolutionExplorer": false
 }

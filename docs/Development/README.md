@@ -11,3 +11,5 @@ Utilizamos diversas tecnologias diferentes, dentre elas o ASP.Net Core e o React
 ## Eu escrevi código e agora?
 
 Agora que você escreveu a sua contribuição para a Academy SM, é possível que você envie ela para revisão fazendo um Pull Request e para fazer um Pull Request, teremos um guia completo [AQUI](<Make a Pull Request.md>)
+
+O nosso próximo capítulo da documentação te ensina a Instalar os componentes e pode ser acessado aqui: [Installation.md](<Installation.md>)
