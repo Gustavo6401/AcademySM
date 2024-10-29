@@ -22,4 +22,4 @@ Ao abrir a Visual Studio, você vai se deparar com a seguinte imagem:
 
 ![Visual Studio - Rede Social Acadêmica](<../imgs/2 - Visual Studio - RedeSocialAcademica>)
 
-O próximo capítulo da documentação é Exatamente explicando sobre cada um dos componentes do código e pode ser visto aqui: [Code.md](<Code.md>)
+O próximo capítulo da documentação é Exatamente explicando sobre cada um dos componentes do código e pode ser visto aqui: [3 - Code.md](<3 - Code.md>)
