@@ -1,15 +1,21 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 
 export default class UploadAPI {
-    async upload(file: File): Promise<string> {
+    async upload(input: File): Promise<string>;
+    async upload(input: FormData): Promise<string>;
+
+    async upload(input: File | FormData): Promise<string> {
         const api: AxiosInstance = axios.create({
             baseURL: import.meta.env.VITE_FILE_SERVER_API
         })
 
-        const formData = new FormData()
-        console.log(formData)
+        var formData = new FormData()
 
-        formData.append('file' ,file)
+        if (input instanceof File) {
+            formData.append('file', input, input.name)
+        } else {
+            formData = input
+        }
 
         try {
             const resultado: AxiosResponse = await api.post('/api/Upload', formData)
@@ -26,7 +32,7 @@ export default class UploadAPI {
             } else if (error.request) {
                 console.error('Nenhuma Resposta Recebida: ', error.request)
             } else {
-                console.error('Erro na Configura��o da Requisi��o')
+                console.error('Erro na Configuração da Requisição')
             }
 
             throw error

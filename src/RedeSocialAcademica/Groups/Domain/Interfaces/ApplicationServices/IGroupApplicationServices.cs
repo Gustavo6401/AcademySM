@@ -6,6 +6,7 @@ namespace Groups.Domain.Interfaces.ApplicationServices
 {
     public interface IGroupApplicationServices
     {
+        Task<GroupsHomeViewModel> AccessGroup(int id);
         Task Create(Courses group);
         Task Delete(int id);
         Task<Courses> Get(int id);

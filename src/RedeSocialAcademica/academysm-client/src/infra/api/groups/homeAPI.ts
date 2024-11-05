@@ -22,7 +22,7 @@ export default class HomeAPI {
             } else if (error.request) {
                 console.error('Nenhuma Resposta Recebida: ', error.request)
             } else {
-                console.error('Erro na Configura��o da Requisi��o')
+                console.error('Erro na Configura��o da Requisição')
             }
 
             throw error

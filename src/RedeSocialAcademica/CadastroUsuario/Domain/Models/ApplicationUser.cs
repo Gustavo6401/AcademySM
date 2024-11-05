@@ -1,4 +1,6 @@
-﻿namespace CadastroUsuario.Domain.Models
+﻿using System.Text.Json.Serialization;
+
+namespace CadastroUsuario.Domain.Models
 {
     public class ApplicationUser
     {
@@ -13,9 +15,14 @@
         public string? Curriculum { get; set; }
         public string? Institution { get; set; }
         public int PasswordErrors { get; set; }
+        public bool ConsentPrivacyPolicy { get; set; }
+        public bool ConsentCookies { get; set; }
 
+        [JsonIgnore]
         public ICollection<EducationalBackground>? EducationalBackgrounds { get; set; }
+        [JsonIgnore]
         public ICollection<UserLockout>? UserLockouts { get; set; }
+        [JsonIgnore]
         public ICollection<ProfilePic>? ProfilePictures { get; set; }
     }
 }

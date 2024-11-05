@@ -1,7 +1,7 @@
 import React from 'react';
 import NavbarWhite from '../../components/navbarWhite/Index'
 import GroupsNavbar from '../../components/groupsNavbar/Index'
-import fotoGustavo from '../../assets/image/foto_gustavo.jpg'
+import fotoGustavo from '../../assets/image/foto_gustavo.webp'
 import progresso from '../../assets/image/Evolucao Chess.com 12-08-2024.png'
 import './Chat.css'
 

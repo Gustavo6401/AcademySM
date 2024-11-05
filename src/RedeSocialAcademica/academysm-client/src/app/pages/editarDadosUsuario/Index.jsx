@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/navbar/index'
 import GrauFormacao from '../../components/formacaoAtual/Index'
-import foto from '../../assets/image/foto_gustavo.jpg'
+import foto from '../../assets/image/foto_gustavo.webp'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './Index.css'

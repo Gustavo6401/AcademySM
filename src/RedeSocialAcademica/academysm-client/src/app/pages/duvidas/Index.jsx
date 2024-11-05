@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../../components/navbar/index'
 import GroupDescription from '../../components/groupDescription/Index'
 import GroupsNavbar from '../../components/groupsNavbar/Index'
-import fotoGustavo from '../../assets/image/foto_gustavo.jpg'
+import fotoGustavo from '../../assets/image/foto_gustavo.webp'
 import './Index.css'
 import Question from '../../components/question/Index';
 

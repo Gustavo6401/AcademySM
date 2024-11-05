@@ -78,902 +78,916 @@
     },
     {
         "id": 12,
+        "name": "Inteligências Artificiais",
+        "mainCategory": "Tecnologia da Informação e Ciência da Computação",
+        "icon": "bi bi-robot",
+        "groups": null
+    },
+    {
+        "id": 13,
         "name": "Empreendedorismo",
         "mainCategory": "Negócios e Finanças",
         "icon": "bi bi-buildings-fill",
         "groups": null
     },
     {
-        "id": 13,
+        "id": 14,
         "name": "Marketing Digital",
         "mainCategory": "Negócios e Finanças",
         "icon": "bi bi-globe-americas",
         "groups": null
     },
     {
-        "id": 14,
+        "id": 15,
         "name": "Contabilidade",
         "mainCategory": "Negócios e Finanças",
         "icon": "bi bi-bar-chart-fill",
         "groups": null
     },
     {
-        "id": 15,
+        "id": 16,
         "name": "Gestão de Negócios",
         "mainCategory": "Negócios e Finanças",
         "icon": "bi bi-briefcase-fill",
         "groups": null
     },
     {
-        "id": 16,
+        "id": 17,
         "name": "Economia Doméstica",
         "mainCategory": "Negócios e Finanças",
         "icon": "bi bi-currency-dollar",
         "groups": null
     },
     {
-        "id": 17,
+        "id": 18,
         "name": "Finanças Pessoais",
         "mainCategory": "Negócios e Finanças",
         "icon": "bi bi-currency-euro",
         "groups": null
     },
     {
-        "id": 18,
+        "id": 19,
         "name": "Investimentos",
         "mainCategory": "Negócios e Finanças",
         "icon": "bi bi-currency-bitcoin",
         "groups": null
     },
     {
-        "id": 19,
+        "id": 20,
         "name": "Mercado Financeiro",
         "mainCategory": "Negócios e Finanças",
         "icon": "bi bi-bank",
         "groups": null
     },
     {
-        "id": 20,
+        "id": 21,
         "name": "Marketing",
         "mainCategory": "Negócios e Finanças",
         "icon": "bi bi-megaphone-fill",
         "groups": null
     },
     {
-        "id": 21,
+        "id": 22,
         "name": "Recursos Humanos",
         "mainCategory": "Negócios e Finanças",
         "icon": "bi bi-people-fill",
         "groups": null
     },
     {
-        "id": 22,
+        "id": 23,
         "name": "Matemática Financeira",
         "mainCategory": "Negócios e Finanças",
         "icon": "bi bi-percent",
         "groups": null
     },
     {
-        "id": 23,
+        "id": 24,
         "name": "História",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-hourglass-split",
         "groups": null
     },
     {
-        "id": 24,
+        "id": 25,
         "name": "Geografia",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-globe-europe-africa",
         "groups": null
     },
     {
-        "id": 25,
+        "id": 26,
         "name": "Filosofia",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-chat-right-quote-fill",
         "groups": null
     },
     {
-        "id": 26,
+        "id": 27,
         "name": "Economia",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-cash",
         "groups": null
     },
     {
-        "id": 27,
+        "id": 28,
         "name": "Microeconomia",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-wallet",
         "groups": null
     },
     {
-        "id": 28,
+        "id": 29,
         "name": "Macroeconomia",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-globe",
         "groups": null
     },
     {
-        "id": 29,
+        "id": 30,
         "name": "Teologia",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-person-arms-up",
         "groups": null
     },
     {
-        "id": 30,
+        "id": 31,
         "name": "Religião",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-yin-yang",
         "groups": null
     },
     {
-        "id": 31,
+        "id": 32,
         "name": "Psicologia",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-lightbulb-fill",
         "groups": null
     },
     {
-        "id": 32,
+        "id": 33,
         "name": "Sociologia",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-people-fill",
         "groups": null
     },
     {
-        "id": 33,
+        "id": 34,
         "name": "Antropologia",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-people-fill",
         "groups": null
     },
     {
-        "id": 34,
+        "id": 35,
         "name": "Linguística",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 35,
+        "id": 36,
         "name": "Direito",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-briefcase-fill",
         "groups": null
     },
     {
-        "id": 36,
+        "id": 37,
         "name": "Ciências Políticas",
         "mainCategory": "Humanidades e Metafísica",
         "icon": "bi bi-briefcase-fill",
         "groups": null
     },
     {
-        "id": 37,
+        "id": 38,
         "name": "Design Gráfico",
         "mainCategory": "Design Digital",
         "icon": "bi bi-pencil-fill",
         "groups": null
     },
     {
-        "id": 38,
+        "id": 39,
         "name": "UI/UX",
         "mainCategory": "Design Digital",
         "icon": "bi bi-window-fullscreen",
         "groups": null
     },
     {
-        "id": 39,
+        "id": 40,
         "name": "Fotografia",
         "mainCategory": "Design Digital",
         "icon": "bi bi-camera-fill",
         "groups": null
     },
     {
-        "id": 40,
+        "id": 41,
         "name": "Edição de Vídeos",
         "mainCategory": "Design Digital",
         "icon": "bi bi-camera-video-fill",
         "groups": null
     },
     {
-        "id": 41,
+        "id": 42,
         "name": "Ilustrações Digitais",
         "mainCategory": "Design Digital",
         "icon": "bi bi-card-image",
         "groups": null
     },
     {
-        "id": 42,
+        "id": 43,
         "name": "Matemática",
         "mainCategory": "Ciências Exatas e da Natureza",
         "icon": "bi bi-123",
         "groups": null
     },
     {
-        "id": 43,
+        "id": 44,
         "name": "Química",
         "mainCategory": "Ciências Exatas e da Natureza",
         "icon": "bi bi-lightning-charge-fill",
         "groups": null
     },
     {
-        "id": 44,
+        "id": 45,
         "name": "Física",
         "mainCategory": "Ciências Exatas e da Natureza",
         "icon": "bi bi-radioactive",
         "groups": null
     },
     {
-        "id": 45,
+        "id": 46,
         "name": "Biologia",
         "mainCategory": "Ciências Exatas e da Natureza",
         "icon": "bi bi-flower1",
         "groups": null
     },
     {
-        "id": 46,
+        "id": 47,
         "name": "Estatística",
         "mainCategory": "Ciências Exatas e da Natureza",
         "icon": "bi bi-calculator",
         "groups": null
     },
     {
-        "id": 47,
+        "id": 48,
         "name": "Neurociência",
         "mainCategory": "Medicina",
         "icon": "bi bi-lightbulb-fill",
         "groups": null
     },
     {
-        "id": 48,
+        "id": 49,
         "name": "Veterinária",
         "mainCategory": "Medicina",
         "icon": "bi bi-hospital-fill",
         "groups": null
     },
     {
-        "id": 49,
+        "id": 50,
         "name": "Biologia Humana",
         "mainCategory": "Medicina",
         "icon": "bi bi-lungs-fill",
         "groups": null
     },
     {
-        "id": 50,
+        "id": 51,
         "name": "Medicina Alternativa",
         "mainCategory": "Medicina",
         "icon": "bi bi-capsule",
         "groups": null
     },
     {
-        "id": 51,
+        "id": 52,
         "name": "Língua Portuguesa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 52,
+        "id": 53,
         "name": "Língua Inglesa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 53,
+        "id": 54,
         "name": "Língua Francesa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 54,
+        "id": 55,
         "name": "Língua Alemã",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 55,
+        "id": 56,
         "name": "Língua Italiana",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 56,
+        "id": 57,
         "name": "Língua Espanhola",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 57,
+        "id": 58,
         "name": "Língua Holandesa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 58,
+        "id": 59,
         "name": "Língua Russa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 59,
+        "id": 60,
         "name": "Língua Norueguesa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 60,
+        "id": 61,
         "name": "Mandarim",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 61,
+        "id": 62,
         "name": "Cantonês",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 62,
+        "id": 63,
         "name": "Língua Japonesa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 63,
+        "id": 64,
         "name": "Hindi",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 64,
+        "id": 65,
         "name": "Língua Árabe",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 65,
+        "id": 66,
         "name": "Língua Sueca",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 66,
+        "id": 67,
         "name": "Língua Dinamarquesa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 67,
+        "id": 68,
         "name": "Língua Finlandesa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 68,
+        "id": 69,
         "name": "Língua Húngara",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 69,
+        "id": 70,
         "name": "Língua Letã",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 70,
+        "id": 71,
         "name": "Língua Swali",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 71,
+        "id": 72,
         "name": "Língua Esperanto",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 72,
+        "id": 73,
         "name": "Língua Latina",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 73,
+        "id": 74,
         "name": "Língua Grega",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 74,
+        "id": 75,
         "name": "Língua Polonesa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 75,
+        "id": 76,
         "name": "Língua Serbo-Croata",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 76,
+        "id": 77,
         "name": "Língua Romena",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 77,
+        "id": 78,
         "name": "Língua Catalã",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 78,
+        "id": 79,
         "name": "Língua Ucraniana",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 79,
+        "id": 80,
         "name": "Língua Estoniana",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 80,
+        "id": 81,
         "name": "Língua Búlgara",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 81,
+        "id": 82,
         "name": "Língua Turca",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 82,
+        "id": 83,
         "name": "Língua Persa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 83,
+        "id": 84,
         "name": "Língua Vietnamita",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 84,
+        "id": 85,
         "name": "Língua Irlandesa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 85,
+        "id": 86,
         "name": "Língua Hebraíca",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 86,
+        "id": 87,
         "name": "Língua Indonésia",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 87,
+        "id": 88,
         "name": "Língua Tcheca",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 88,
+        "id": 89,
         "name": "Língua Havaiana",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 89,
+        "id": 90,
         "name": "Língua Zulu",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 90,
+        "id": 91,
         "name": "Língua Galesa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 91,
+        "id": 92,
         "name": "Língua Gaélica-Escocesa",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 92,
+        "id": 93,
         "name": "Língua Créole",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 93,
+        "id": 94,
         "name": "Língua Coreana",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 94,
+        "id": 95,
         "name": "Língua Bengali",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 95,
+        "id": 96,
         "name": "Língua Protogramânica",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 96,
+        "id": 97,
         "name": "Língua Armena",
         "mainCategory": "Idiomas",
         "icon": "bi bi-translate",
         "groups": null
     },
     {
-        "id": 97,
+        "id": 98,
         "name": "Comunicação",
         "mainCategory": "Desenvolvimento Pessoal e Saúde",
         "icon": "bi bi-chat",
         "groups": null
     },
     {
-        "id": 98,
+        "id": 99,
         "name": "Liderança",
         "mainCategory": "Desenvolvimento Pessoal e Saúde",
         "icon": "bi bi-people-fill",
         "groups": null
     },
     {
-        "id": 99,
+        "id": 100,
         "name": "Autoconhecimento",
         "mainCategory": "Desenvolvimento Pessoal e Saúde",
         "icon": "bi bi-lightbulb-fill",
         "groups": null
     },
     {
-        "id": 100,
+        "id": 101,
         "name": "Gestão do Tempo",
         "mainCategory": "Desenvolvimento Pessoal e Saúde",
         "icon": "bi bi-stopwatch-fill",
         "groups": null
     },
     {
-        "id": 101,
+        "id": 102,
         "name": "Saúde Mental e Emocional",
         "mainCategory": "Desenvolvimento Pessoal e Saúde",
         "icon": "bi bi-lightbulb-fill",
         "groups": null
     },
     {
-        "id": 102,
+        "id": 103,
         "name": "Nutrição",
         "mainCategory": "Desenvolvimento Pessoal e Saúde",
         "icon": "bi bi-egg-fried",
         "groups": null
     },
     {
-        "id": 103,
+        "id": 104,
         "name": "Yoga",
         "mainCategory": "Desenvolvimento Pessoal e Saúde",
         "icon": "bi bi-yin-yang",
         "groups": null
     },
     {
-        "id": 104,
+        "id": 105,
         "name": "Xadrez",
         "mainCategory": "Esportes",
         "icon": "bi bi-controller",
         "groups": null
     },
     {
-        "id": 105,
+        "id": 106,
         "name": "Musculação e Calistenia",
         "mainCategory": "Esportes",
         "icon": "bi bi-controller",
         "groups": null
     },
     {
-        "id": 106,
+        "id": 107,
         "name": "Futebol",
         "mainCategory": "Esportes",
         "icon": "bi bi-controller",
         "groups": null
     },
     {
-        "id": 107,
+        "id": 108,
         "name": "Basquete",
         "mainCategory": "Esportes",
         "icon": "bi bi-controller",
         "groups": null
     },
     {
-        "id": 108,
+        "id": 109,
         "name": "Vôlei",
         "mainCategory": "Esportes",
         "icon": "bi bi-controller",
         "groups": null
     },
     {
-        "id": 109,
+        "id": 110,
         "name": "e-Sports",
         "mainCategory": "Esportes",
         "icon": "bi bi-controller",
         "groups": null
     },
     {
-        "id": 110,
+        "id": 111,
         "name": "Canto",
         "mainCategory": "Música",
         "icon": "bi bi-music-note-beamed",
         "groups": null
     },
     {
-        "id": 111,
+        "id": 112,
         "name": "Guitarra",
         "mainCategory": "Música",
         "icon": "bi bi-music-note-beamed",
         "groups": null
     },
     {
-        "id": 112,
+        "id": 113,
         "name": "Bateria",
         "mainCategory": "Música",
         "icon": "bi bi-music-note-beamed",
         "groups": null
     },
     {
-        "id": 113,
+        "id": 114,
         "name": "Baixo",
         "mainCategory": "Música",
         "icon": "bi bi-music-note-beamed",
         "groups": null
     },
     {
-        "id": 114,
+        "id": 115,
         "name": "Violino",
         "mainCategory": "Música",
         "icon": "bi bi-music-note-beamed",
         "groups": null
     },
     {
-        "id": 115,
+        "id": 116,
         "name": "Violoncelo",
         "mainCategory": "Música",
         "icon": "bi bi-music-note-beamed",
         "groups": null
     },
     {
-        "id": 116,
+        "id": 117,
         "name": "Saxofone",
         "mainCategory": "Música",
         "icon": "bi bi-music-note-beamed",
         "groups": null
     },
     {
-        "id": 117,
+        "id": 118,
         "name": "Piano e Cravo",
         "mainCategory": "Música",
         "icon": "bi bi-music-note-beamed",
         "groups": null
     },
     {
-        "id": 118,
+        "id": 119,
         "name": "Instrumentos de Sopro",
         "mainCategory": "Música",
         "icon": "bi bi-music-note-beamed",
         "groups": null
     },
     {
-        "id": 119,
+        "id": 120,
         "name": "Teclado",
         "mainCategory": "Música",
         "icon": "bi bi-music-note-beamed",
         "groups": null
     },
     {
-        "id": 120,
+        "id": 121,
         "name": "Sintetizadores",
         "mainCategory": "Música",
         "icon": "bi bi-music-note-beamed",
         "groups": null
     },
     {
-        "id": 121,
+        "id": 122,
         "name": "DJ",
         "mainCategory": "Música",
         "icon": "bi bi-vinyl-fill",
         "groups": null
     },
     {
-        "id": 122,
+        "id": 123,
         "name": "Produção Musical",
         "mainCategory": "Música",
         "icon": "bi bi-vinyl-fill",
         "groups": null
     },
     {
-        "id": 123,
+        "id": 124,
+        "name": "Desenho",
+        "mainCategory": "Artes",
+        "icon": "bi bi-pencil-fill",
+        "groups": null
+    },
+    {
+        "id": 125,
         "name": "Escrita Criativa",
         "mainCategory": "Artes",
         "icon": "bi bi-pen-fill",
         "groups": null
     },
     {
-        "id": 124,
+        "id": 126,
         "name": "Teatro",
         "mainCategory": "Artes",
         "icon": "bi bi-palette-fill",
         "groups": null
     },
     {
-        "id": 125,
+        "id": 127,
         "name": "Cinema",
         "mainCategory": "Artes",
         "icon": "bi bi-film",
         "groups": null
     },
     {
-        "id": 126,
+        "id": 128,
         "name": "Dança",
         "mainCategory": "Artes",
         "icon": "bi bi-palette-fill",
         "groups": null
     },
     {
-        "id": 127,
+        "id": 129,
         "name": "Culinária",
         "mainCategory": "Artes",
         "icon": "bi bi-egg-fried",
         "groups": null
     },
     {
-        "id": 128,
+        "id": 130,
         "name": "Jardinagem",
         "mainCategory": "Artes",
         "icon": "bi bi-flower1",
         "groups": null
     },
     {
-        "id": 129,
+        "id": 131,
         "name": "Moda",
         "mainCategory": "Artes",
         "icon": "bi bi-palette-fill",
         "groups": null
     },
     {
-        "id": 130,
+        "id": 132,
         "name": "Metodologias de Ensino",
         "mainCategory": "Educação",
         "icon": "bi bi-easel-fill",
         "groups": null
     },
     {
-        "id": 131,
+        "id": 133,
         "name": "Pedagogia",
         "mainCategory": "Educação",
         "icon": "bi bi-easel2-fill",
         "groups": null
     },
     {
-        "id": 132,
+        "id": 134,
         "name": "Técnicas para o Aprendizado",
         "mainCategory": "Educação",
         "icon": "bi bi-palette-fill",
         "groups": null
     },
     {
-        "id": 133,
+        "id": 135,
         "name": "Educação Infantil",
         "mainCategory": "Educação",
         "icon": "bi bi-easel3-fill",
         "groups": null
     },
     {
-        "id": 134,
+        "id": 136,
         "name": "Educação de Adultos",
         "mainCategory": "Educação",
         "icon": "bi bi-mortarboard-fill",
         "groups": null
     },
     {
-        "id": 135,
+        "id": 137,
         "name": "Tecnologias Educacionais",
         "mainCategory": "Educação",
         "icon": "bi bi-motherboard-fill",
         "groups": null
     },
     {
-        "id": 136,
+        "id": 138,
         "name": "Viagens",
         "mainCategory": "Educação",
         "icon": "bi bi-backpack-fill",
         "groups": null
     },
     {
-        "id": 137,
+        "id": 139,
         "name": "Faça Você Mesmo",
         "mainCategory": "Educação",
         "icon": "bi bi-hammer",
         "groups": null
     },
     {
-        "id": 138,
+        "id": 140,
         "name": "Carpintaria",
         "mainCategory": "Educação",
         "icon": "bi bi-hammer",
         "groups": null
     },
     {
-        "id": 139,
+        "id": 141,
         "name": "Metalurgia",
         "mainCategory": "Educação",
         "icon": "bi bi-gear-fill",
         "groups": null
     },
     {
-        "id": 140,
+        "id": 142,
         "name": "Mecânica",
         "mainCategory": "Educação",
         "icon": "bi bi-car-front-fill",

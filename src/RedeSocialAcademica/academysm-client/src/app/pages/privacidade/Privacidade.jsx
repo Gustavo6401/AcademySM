@@ -108,6 +108,8 @@ export default function Privacidade() {
 
                 <h2>Informações de Contato e DPO</h2>
                 <p>Quaisquer informações ou pedido de exclusão imediata dos dados você pode solicitar diretamente pelo nosso formulário de política de privacidade. Por meio desse formulário, você conseguirá falar diretamente com o Gustavo, nosso CTO, CEO e DPO. Agradecemos seu tempo!</p>
+
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdd923TnBwVs0zgAU5HQcEi3XGU3nhJd5TaqazAD4DQ_UM11Q/viewform?embedded=true" className='formularioPrivacidade' frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
     )

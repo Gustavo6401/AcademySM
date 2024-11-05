@@ -1,5 +1,5 @@
 import NavbarWhite from '../../components/navbarWhite/Index.jsx'
-import fotoGustavo from '../../assets/image/foto_gustavo.jpg'
+import fotoGustavo from '../../assets/image/foto_gustavo.webp'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './Index.css'

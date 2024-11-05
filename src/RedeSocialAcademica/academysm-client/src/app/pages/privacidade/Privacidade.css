@@ -16,3 +16,14 @@
 {
     margin: 15px;
 }
+
+.formularioPrivacidade {
+    height: 1400px;
+    width: 640px;
+}
+
+@media (max-width: 768px) {
+    .formularioPrivacidade {
+        max-width: 280px;
+    }
+}

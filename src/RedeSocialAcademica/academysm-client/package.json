@@ -1,7 +1,7 @@
 {
   "name": "academysm-client",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,8 +19,7 @@
     "cryptojs": "^2.5.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2",
-    "recoil": "^0.7.7"
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",

@@ -36,9 +36,9 @@ namespace CadastroUsuario.Domain.Services
             return validator.Validate(password);
         }
 
-        bool IUserServices.ContainsAtLeastSixteenCharacters(string password)
+        bool IUserServices.ContainsAtLeastEightCharacters(string password)
         {
-            if(password.Length <= 16)
+            if(password.Length < 8)
             {
                 return false;
             }
@@ -181,14 +181,9 @@ namespace CadastroUsuario.Domain.Services
                 throw new ArgumentException(containsAllCharacterTypes);
             }
 
-            if(services.ContainsAtLeastSixteenCharacters(password) != true)
+            if(services.ContainsAtLeastEightCharacters(password) != true)
             {
-                throw new ArgumentException("Crie uma Senha de ao Menos 16 Caracteres!");
-            }
-
-            if(services.ContainsMaximumFiveCharactersOfTheSameTypeInASequence(password) != true)
-            {
-                throw new ArgumentException("Crie uma Senha que Não Tenha mais de 5 Caracteres do Mesmo Tipo em Sequência!");
+                throw new ArgumentException("Crie uma Senha de ao Menos 8 Caracteres!");
             }
 
             return true;

@@ -16,6 +16,12 @@ namespace Groups.Presentation.ApplicationServices
             _services = services;
             _repository = repository;
         }
+        public async Task<GroupsHomeViewModel> AccessGroup(int id)
+        {
+            GroupsHomeViewModel? group = await _repository.AccessGroup(id);
+
+            return group!;
+        }
         public async Task Create(Courses group)
         {
             _services.ValidateOnCreate(group);

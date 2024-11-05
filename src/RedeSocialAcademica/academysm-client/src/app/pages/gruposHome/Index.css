@@ -72,10 +72,6 @@
     height: inherit;
 }
 
-.group-component-description {
-    display: none;
-}
-
 @media (max-width: 768px) {
     .group-description-display-none {
         display: flex;
@@ -89,12 +85,6 @@
 
     .groups-index {
         display: none;
-    }
-
-    .group-component-description {
-        display: block;
-        width: 100vw;
-        color: white;
     }
 
     .group-description-title,

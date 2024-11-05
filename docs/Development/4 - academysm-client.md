@@ -38,7 +38,7 @@ Utilizamos as seguintes tecnologias:
 
 4. Clique com o botão direito em cima da solução `RedeSocialAcademica`
 
-![Clicando com o Botão Esquerdo](<../imgs/4.5 - Clicando com o Botão Esquerdo Por Cima da Solução.png>)
+![Clicando com o Botão Direito](<../imgs/4.5 - Clicando com o Botão Direito Por Cima da Solução.png>)
 
 5. Clique em **Configurar Projetos de Inicialização**
 

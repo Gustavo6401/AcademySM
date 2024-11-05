@@ -1,14 +1,22 @@
 import Navbar from '../../components/navbar/index'
 import GroupDescription from '../../components/groupDescription/Index.tsx';
-import Post from '../../components/post/Index.tsx';
+import PostComponent from '../../components/post/Index.tsx';
 import GroupsNavbar from '../../components/groupsNavbar/Index';
 import grupoAbaArtigos from '../../assets/image/Grupo - Aba Artigos.png'
 import { useEffect, useState } from 'react';
-import Courses from '../../../domain/models/apis/groups/courses';
 import GroupHomeApplicationServices from '../../services/groupHomeApplicationServices';
+import GroupHomeViewModel from '../../../domain/models/apis/groups/return/groupHomeViewModel.ts';
+import Post from '../../../domain/models/apis/groups/post.ts';
+import navigateTo from '../../../infra/navigation/navigation.ts';
+import './Index.css'
 
 export default function GruposHomePage() {
-    const [groupDetails, setGroupDetails] = useState<Courses | undefined>(undefined)
+    const [groupDetails, setGroupDetails] = useState<GroupHomeViewModel | undefined>(undefined)
+    const [id, setId] = useState<number>(0)
+    const [name, setName] = useState<string>('')
+    const [level, setLevel] = useState<string>('')
+    const [description, setDescription] = useState<string>('')
+    const [posts, setPosts] = useState<Array<Post> | undefined>(undefined)
 
     const pathParts: Array<string> = window.location.pathname.split('/')
 
@@ -21,10 +29,22 @@ export default function GruposHomePage() {
 
     useEffect(() => {
         const fetchGroupDetails = async () => {
-            const courses: Courses = await groupHomeAppServices.get(groupId)
+            try {
+                const courses: GroupHomeViewModel = await groupHomeAppServices.get(groupId)
 
-            setGroupDetails(new Courses(courses.getId(), courses.getName(), courses.getLevel(), courses.getTutor()
-                , courses.getDescription(), courses.getIsPublic()))
+                setId(courses.getId())
+                setName(courses.getName())
+                setLevel(courses.getLevel())
+                setDescription(courses.getDescription())
+                setPosts(courses.getPosts())
+            } catch (error: any) {
+                if (error.message.includes("Erro 403")) {
+                    alert("Você Não Está Autorizado para Acessar esse Grupo, Redirecionando para a Tela de Login.")
+                    navigateTo('/Login')
+                } else {
+                    console.log('Erro Inesperado: ', error)
+                }
+            }
         }
 
         fetchGroupDetails()
@@ -35,25 +55,22 @@ export default function GruposHomePage() {
             <Navbar />
             <div className='groupsHomePage'>
                 <main className='groups-index'>
-                    <GroupDescription icon='bi bi-music-note-beamed' courseTitle={groupDetails?.getName()} percentageConcluded={55} />
-                    <Post title='Título do Artigo' text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' images={photos} />
-                </main>
-                <div>
-                    <section className='group-description-display-none'>
-                        <div className='groupCategoryIcon'>
-                            <i className="bi bi-music-note-beamed"></i>
-                        </div>
-                        <div className='description'>
-                            <h1>{groupDetails?.getName()}</h1>
-                            <label className='conclusionPercentage'>55% Conclu�do</label>
-                        </div>
-                    </section>
-                    <GroupsNavbar />
+                    <GroupDescription icon='bi bi-music-note-beamed' courseTitle={name} percentageConcluded={55} />
+                    {posts ? (
+                        posts.map((post) =>
+                            <PostComponent title={post.getTitle()} text={post.getContent()} images={photos} />
+                        )
+                    ) : (
+                        <p>Nenhum post disponível.</p>
+                    )}
                     <div className='group-component-description'>
-                        <h1 className='group-description-title'>Descri��o</h1>
+                        <h1 className='group-description-title'>Descrição</h1>
                         <hr />
-                        <p className='group-description-text'>{groupDetails?.getDescription()}</p>
+                        <p className='group-description-text'>{description}</p>
                     </div>
+                </main>
+                <div className='barra-navegacao-grupos'>
+                    <GroupsNavbar />                    
                 </div>
             </div>
         </div>

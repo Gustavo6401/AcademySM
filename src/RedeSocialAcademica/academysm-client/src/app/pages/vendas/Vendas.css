@@ -1,0 +1,106 @@
+.vendasTitle {
+    display: grid;
+    grid-template-columns: 48vw 48vw;
+    background-color: white;
+}
+
+.vendasMainContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.vendasMainContentImages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.vendasMainContentImages img {
+    margin: 5px;
+}
+
+.mobileScreen {
+    height: 229.25px;
+    width: 160.5px;
+}
+
+.desktopScreen {
+    height: 215px;
+    width: 335.5px;
+}
+
+.vendasMainContentTwo {
+    background-color: var(--vermelho);
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.vendasPossibleSkills {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill-component {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    color: var(--vermelho);
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.skill-component i {
+    font-size: 50px;
+}
+
+.skill-component label {
+    font-size: 20px;
+}
+
+.vendasActualFeatures {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.vendasFooter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--vermelho);
+    color: white;
+}
+
+.vendasFormulario {
+    width: 640px;
+    height: 1604px;
+}
+
+@media (max-width: 768px) {
+    .vendasMainContentImages {
+        display: none;
+    }
+
+    .vendasMainContent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vw;
+    }
+
+    .vendasFormulario {
+        width: 100vw;
+    }
+}

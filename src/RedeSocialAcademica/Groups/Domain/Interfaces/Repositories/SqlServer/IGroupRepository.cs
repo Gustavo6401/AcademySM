@@ -6,6 +6,7 @@ namespace Groups.Domain.Interfaces.Repositories.SqlServer
 {
     public interface IGroupRepository : ISqlServerRepositoryBase<Courses>
     {
+        Task<GroupsHomeViewModel> AccessGroup(int id);
         Task<List<Courses>> GetAll();
         Task<List<Courses>> GetByLevel(string level);
         Task<List<Courses>> GetByName(string name);

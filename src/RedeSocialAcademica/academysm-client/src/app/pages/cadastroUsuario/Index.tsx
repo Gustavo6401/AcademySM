@@ -17,7 +17,7 @@ import EduBackground from '../../components/educationalBackgrounds/educBackgroun
 export default function CadastroUsuario() {
     const services = new CadastroUsuarioViewServices()
 
-    const[fullName, setFullName] = useState('')
+    const [fullName, setFullName] = useState<string>('')
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
     const[birthDate, setBirthDate] = useState<Date | null>(null)
@@ -26,13 +26,17 @@ export default function CadastroUsuario() {
     const[actualCourse, setActualCourse] = useState('')
     const[curriculum, setCurriculum] = useState('')
     const[institution, setInstitution] = useState('')
+    const [consentCookies, setConsentCookies] = useState<boolean>(false)
+    const[consentPrivacyPolicy, setConsentPrivacyPolicy] = useState<boolean>(false)
 
     const[course, setCourse] = useState('')
     const[formationEucationalDegree, setFormationEducationalDegree] = useState('')
     const[status, setStatus] = useState('')
     const[FormationInstitution, setFormationInstitution] = useState('')
     const[courseBegin, setCourseBegin] = useState<Date | null>(null)
-    const[courseEnd, setCourseEnd] = useState<Date | null>(null)
+    const [courseEnd, setCourseEnd] = useState<Date | null>(null)
+
+    const [file, setFile] = useState<File | null>(null)
 
     const[imageSrc, setImageSrc] = useState<string>('') 
 
@@ -48,10 +52,20 @@ export default function CadastroUsuario() {
         setEducationalDegree(e.target.value)
     }
 
+    function navigate(path: string) {
+        navigateTo(path)
+    }
+
     function handleDataChanged(e: ChangeEvent<HTMLInputElement>, functionParameter: Function) {
         const dateValue: string = e.target.value
         const parsedDate: Date = new Date(dateValue)
         functionParameter(parsedDate)
+    }
+
+    function handleBooleanChanged(e: ChangeEvent<HTMLInputElement>, functionParameter: Function) {
+        const booleanValue: string = e.target.value
+        const parsedBoolean: boolean = booleanValue === 'true'
+        functionParameter(parsedBoolean)
     }
 
     function handleDivClick() {
@@ -61,16 +75,9 @@ export default function CadastroUsuario() {
     }
 
     function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
-        const file : File | undefined = event.target.files?.[0]
+        setFile(event.target.files?.[0])
 
         if(file) {
-            const reader = new FileReader()
-            const currentDate = new Date().toISOString().split('T')[0]
-
-            reader.onloadend = () => {
-                setImageSrc(`${file.name}_${currentDate}`)
-            }
-
             console.log("Arquivo Selecionado.", file.name)
         }
     }
@@ -100,7 +107,10 @@ export default function CadastroUsuario() {
             actualCourse,
             curriculum,
             institution,
-            0)
+            0,
+            consentCookies,
+            consentPrivacyPolicy
+        )
 
         const groupsApplicationUser = new GroupsApplicationUser(
             '',
@@ -119,7 +129,7 @@ export default function CadastroUsuario() {
             ''
         )
 
-        const response = services.create(applicationUser, groupsApplicationUser, educationalBackgroundList, profilePicData)
+        const response: string = await services.create(applicationUser, groupsApplicationUser, educationalBackgroundList, profilePicData, file)
 
         alert(response)
     }
@@ -159,6 +169,14 @@ export default function CadastroUsuario() {
                     </div>
                     <div className='componentIsolator-1'>
                         <input className='formInputType-1' type='text' placeholder='Instituição' onChange={e => setInstitution(e.target.value)} />
+                    </div>
+                    <div className='componentIsolator-1'>
+                        <input type='checkbox' onChange={e => handleBooleanChanged(e, setConsentCookies)} />
+                        Concordo com o Uso de Cookies Técnicos necessários para a criação e manutenção de minha conta conforme descritos na <a onClick={() => navigate('/Privacidade')}>Política de Privacidade</a>
+                    </div>
+                    <div className='componentIsolator-1'>
+                        <input type='checkbox' onChange={e => handleBooleanChanged(e, setConsentPrivacyPolicy)} />
+                        Concordo com os termos descritos na <a onClick={() => navigate('/Privacidade')}>Política de Privacidade</a>
                     </div>
                     <div className='componentIsolator-1'>
                         <button className='button-large azul-escuro' onClick={cadastrarUsuario}>Cadastrar</button>

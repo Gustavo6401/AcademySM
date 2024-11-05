@@ -1,6 +1,6 @@
 import React from 'react';
 import './Index.css'
-import fotoGustavo from '../../assets/image/foto_gustavo.jpg'
+import fotoGustavo from '../../assets/image/foto_gustavo.webp'
 
 function Question({ questionTitle, questionDescription, questionMakerName }) {
     let colorComponent = ''

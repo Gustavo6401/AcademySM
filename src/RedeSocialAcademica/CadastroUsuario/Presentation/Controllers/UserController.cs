@@ -22,15 +22,11 @@ namespace CadastroUsuario.Presentation.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult<string>> Create([FromBody] ApplicationUser user)
+        public async Task<ActionResult<UserCreateReturn>> Create([FromBody] ApplicationUser user)
         {
-            string response = await _applicationServices.CreateAsync(user);
-
-            return Ok(response);
-
-            /*try
+            try
             {
-                string response = await _applicationServices.CreateAsync(user);
+                UserCreateReturn response = await _applicationServices.CreateAsync(user);
 
                 return Ok(response);
             }
@@ -41,7 +37,7 @@ namespace CadastroUsuario.Presentation.Controllers
             catch
             {
                 return BadRequest();
-            }*/
+            }
         }
 
         [HttpDelete]
@@ -141,6 +137,20 @@ namespace CadastroUsuario.Presentation.Controllers
             string result = await _applicationServices.Logout();
 
             return result;
+        }
+
+        [HttpGet("OwnProfile")]
+        [Authorize]
+        public ActionResult UserIsOwningProfile(Guid id)
+        {
+            string? userId = Convert.ToString(id);
+
+            if(User.FindFirst(ClaimTypes.NameIdentifier)!.Value != userId)
+            {
+                return Ok("Usuário Não tem Direitos de Deleção e Alteração Sobre Esse Usuário.");
+            }
+
+            return Ok("Usuário tem Direitos de Deleção e Alteração.");
         }
 
         [HttpPut]

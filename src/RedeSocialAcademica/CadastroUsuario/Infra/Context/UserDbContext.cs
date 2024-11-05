@@ -68,6 +68,14 @@ namespace CadastroUsuario.Infra.Context
                         .IsRequired();
 
             modelBuilder.Entity<ApplicationUser>()
+                .Property(u => u.ConsentPrivacyPolicy)
+                    .IsRequired();
+
+            modelBuilder.Entity<ApplicationUser>()
+                .Property(u => u.ConsentCookies)
+                    .IsRequired();
+
+            modelBuilder.Entity<ApplicationUser>()
                 .Property(u => u.Password)
                     .IsRequired();
 

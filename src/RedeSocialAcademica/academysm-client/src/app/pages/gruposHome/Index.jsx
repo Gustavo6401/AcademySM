@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/navbar/index'
-import foto from '../../assets/image/foto_gustavo.jpg'
+import foto from '../../assets/image/foto_gustavo.webp'
 import grupoAbaArtigos from '../../assets/image/Grupo - Aba Artigos.png'
 import './Index.css'
 import GroupsNavbar from '../../components/groupsNavbar/Index';

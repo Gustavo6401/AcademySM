@@ -356,3 +356,11 @@ C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\R
 C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\CadastroUsuarioTest\obj\Debug\net8.0\CadastroUsuarioTest.pdb
 C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\CadastroUsuarioTest\obj\Debug\net8.0\CadastroUsuarioTest.genruntimeconfig.cache
 C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\CadastroUsuarioTest\obj\Debug\net8.0\ref\CadastroUsuarioTest.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\CadastroUsuarioTest\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\CadastroUsuarioTest\bin\Debug\net8.0\Microsoft.AspNetCore.DataProtection.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\CadastroUsuarioTest\bin\Debug\net8.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\CadastroUsuarioTest\bin\Debug\net8.0\Microsoft.AspNetCore.DataProtection.Extensions.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\CadastroUsuarioTest\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\CadastroUsuarioTest\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\CadastroUsuarioTest\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\CadastroUsuarioTest\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll

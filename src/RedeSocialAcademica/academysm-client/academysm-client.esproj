@@ -24,12 +24,10 @@
     <Folder Include="src\app\components\academySMText\" />
     <Folder Include="src\app\components\categoriesMenu\" />
     <Folder Include="src\app\components\dailyComponents\call\" />
-    <Folder Include="src\app\components\NovaPasta\" />
     <Folder Include="src\app\components\sendSomething\" />
     <Folder Include="src\app\components\question\" />
     <Folder Include="src\app\components\post\" />
     <Folder Include="src\app\modal\sendAssignment\" />
-    <Folder Include="src\app\modal\NovaPasta\" />
     <Folder Include="src\app\pages\cadastroUsuario\" />
     <Folder Include="src\app\pages\login\" />
     <Folder Include="src\app\pages\detalhesUsuario\" />
@@ -57,5 +55,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="src\app\NovaPasta1\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptConfiguration Remove="src\app\components\NovaPasta\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\components\NovaPasta\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptConfiguration Remove="src\app\modal\NovaPasta\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\modal\NovaPasta\**" />
   </ItemGroup>
 </Project>

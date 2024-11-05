@@ -1,11 +1,12 @@
 import ApplicationUser from "../../../domain/models/apis/user/applicationUser";
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosInstance, AxiosResponse } from "axios";
 import UserDetailsViewModel from "../../../domain/models/viewModels/userDetailsViewModel";
 import FormationsName from "../../../domain/models/viewModels/formationsName";
 import LoginViewModel from "../../../domain/models/viewModels/loginViewModel";
+import UserCreateResponse from "../../../domain/models/apis/user/userCreateResponse";
 
 export default class ApplicationUserAPI {
-    async createAsync(user: ApplicationUser) {
+    async createAsync(user: ApplicationUser): Promise<UserCreateResponse> {
         const bodyRequest = {
             fullName: user.getFullName(),
             email: user.getEmail(),
@@ -16,7 +17,9 @@ export default class ApplicationUserAPI {
             actualCourse: user.getActualCourse(),
             curriculum: user.getCurriculum(),
             institution: user.getInstitution(),
-            passwordErrors: user.getPasswordErrors()
+            passwordErrors: user.getPasswordErrors(),
+            consentPrivacyPolicy: user.getConsentPrivacyPolicy(),
+            consentCookies: user.getConsentCookies()
         }
 
         let api = axios.create({
@@ -25,10 +28,10 @@ export default class ApplicationUserAPI {
         })
 
         try {
-            const response = await api.post('/api/User', bodyRequest)
-            console.log(response.data)
+            const response: AxiosResponse = await api.post('/api/User', bodyRequest)
 
-            return response.data
+            return new UserCreateResponse(response.data.message, response.data.userId)
+
         } catch (error) {
             console.error('Erro ao Fazer a Requisição: ', error)
 
@@ -49,7 +52,7 @@ export default class ApplicationUserAPI {
             const applicationUserResponse: ApplicationUser = new ApplicationUser(response.id, response.fullName,
                 response.email, response.password, response.birthDate, response.phone,
                 response.educationalDegree, response.actualCourse, response.curriculum, response.institution,
-                    response.passwordErrors)
+                    response.passwordErrors, response.consentPrivacyPolicy, response.consentCookies)
 
             return applicationUserResponse
         } catch (error) {
@@ -130,6 +133,33 @@ export default class ApplicationUserAPI {
                 headers: {
                     'userId': userId
             } })
+        } catch (error: any) {
+            if (error.response) {
+                console.error('Erro: ', error.response.data)
+                console.log('Mensagem: ', error.response.message)
+                console.log('Status: ', error.response.status)
+                console.log('Headers: ', error.response.headers)
+            } else if (error.request) {
+                console.error('Nenhuma Resposta Recebida: ', error.request)
+            } else {
+                console.error('Erro na Configuração da Requisição')
+            }
+
+            throw error
+        }
+    }
+
+    async ownProile(id: string): Promise<string> {
+        let api: AxiosInstance = axios.create({
+            baseURL: import.meta.env.VITE_USER_API
+        })
+
+        try {
+            const resultado: AxiosResponse = await api.get(`/api/User/OwnProfile?id=${id}`)
+
+            const result: string = resultado.data
+
+            return result
         } catch (error: any) {
             if (error.response) {
                 console.error('Erro: ', error.response.data)

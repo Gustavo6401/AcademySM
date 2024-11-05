@@ -15,6 +15,25 @@ namespace Groups.Infra.Repository.SqlServer
             _context = context;
         }
 
+        public async Task<GroupsHomeViewModel> AccessGroup(int id)
+        {
+            List<Post>? list = await _context.Posts.Where(p => p.GroupId == id)
+                .ToListAsync();
+
+            GroupsHomeViewModel? groupsHomeViewModel = await _context.Courses.Where(g => g.Id == id)
+                .Select(g => new GroupsHomeViewModel
+                {
+                    Id = g.Id,
+                    Name = g.Name,
+                    Level = g.Level,
+                    Description = g.Description,
+                    Posts = list
+                })
+                .FirstOrDefaultAsync();
+
+            return groupsHomeViewModel!;
+        }
+
         public async Task<List<Courses>> GetAll()
         {
             List<Courses>? courses = await _context.Courses.ToListAsync();

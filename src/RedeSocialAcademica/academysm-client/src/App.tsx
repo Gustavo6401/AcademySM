@@ -10,6 +10,8 @@ import DetalhesUsuario from './app/pages/detalhesUsuario/Index'
 import Videoconference from '../src/app/pages/videoconference/Videoconference.js'
 import Tarefas from '../src/app/pages/tarefas/Tarefas.js'
 import Privacidade from './app/pages/privacidade/Privacidade.jsx'
+import Vendas from './app/pages/vendas/Vendas.jsx'
+import UserProfile from './app/pages/userProfile/UserProfile.js'
 
 function App() {
     const[Component, setComponent] = useState(() => Login)
@@ -48,12 +50,18 @@ function App() {
                 case '/Grupos':
                     Component = Grupos
                     break
+                case '/Login':
+                    Component = Login
+                    break
                 case '/Privacidade':
                     Component = Privacidade
                     break
+                case '/UserProfile':
+                    Component = UserProfile
+                    break
                 case '/':
                 default:
-                    Component = Login
+                    Component = Vendas
                     break
 
             }

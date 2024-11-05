@@ -36,6 +36,12 @@ namespace CadastroUsuario.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("ConsentCookies")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ConsentPrivacyPolicy")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Curriculum")
                         .IsRequired()
                         .HasMaxLength(10000)

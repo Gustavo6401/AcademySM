@@ -38,15 +38,21 @@ export default class EducationalBackgroundAPI {
         }
     }
 
-    async getByUserIdAsync(id: string) {
+    async getByUserIdAsync(id: string): Promise<Array<EducationalBackground>> {
         const api: AxiosInstance = axios.create({
             baseURL: import.meta.env.VITE_USER_API
         })
 
         try {
-            const resultado = await api.get(`/api/EducationalBackground/ListUsersEducationalBackgrounds?userId=${id}`)
+            const resultado: AxiosResponse = await api.get(`/api/EducationalBackground/ListUsersEducationalBackgrounds?userId=${id}`)
 
+            const result: Array<any> = resultado.data
 
+            const backgroundList: Array<EducationalBackground> = result.map((json: any) => 
+                new EducationalBackground(json.id, json.course, json.educationalDegree, json.status,
+                    json.institution, json.courseBegin, json.courseEnd, json.userId))
+
+            return backgroundList
         } catch (error: any) {
             if (error.response) {
                 console.error('Erro: ', error.response.data)

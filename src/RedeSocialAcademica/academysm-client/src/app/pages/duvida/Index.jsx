@@ -1,7 +1,7 @@
 import React from 'react';
 import NavbarWhite from '../../components/navbarWhite/Index'
 import AcademySMText from '../../components/academySMText/Index';
-import fotoGustavo from '../../assets/image/foto_gustavo.jpg'
+import fotoGustavo from '../../assets/image/foto_gustavo.webp'
 import GroupsNavbar from '../../components/groupsNavbar/Index';
 import LargeVotes from '../../components/largeVotes/Index'
 import './Index.css'

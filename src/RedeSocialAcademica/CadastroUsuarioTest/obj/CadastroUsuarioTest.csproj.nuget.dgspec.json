@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\CadastroUsuarioTest\\CadastroUsuarioTest.csproj": {}
+    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\CadastroUsuarioTest\\CadastroUsuarioTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\CadastroUsuarioTest\\CadastroUsuarioTest.csproj": {
+    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\CadastroUsuarioTest\\CadastroUsuarioTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\CadastroUsuarioTest\\CadastroUsuarioTest.csproj",
+        "projectUniqueName": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\CadastroUsuarioTest\\CadastroUsuarioTest.csproj",
         "projectName": "CadastroUsuarioTest",
-        "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\CadastroUsuarioTest\\CadastroUsuarioTest.csproj",
+        "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\CadastroUsuarioTest\\CadastroUsuarioTest.csproj",
         "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\CadastroUsuarioTest\\obj\\",
+        "outputPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\CadastroUsuarioTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\CadastroUsuario\\CadastroUsuario.csproj": {
-                "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\CadastroUsuario\\CadastroUsuario.csproj"
+              "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\CadastroUsuario\\CadastroUsuario.csproj": {
+                "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\CadastroUsuario\\CadastroUsuario.csproj"
               }
             }
           }
@@ -81,14 +81,14 @@
         }
       }
     },
-    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\CadastroUsuario\\CadastroUsuario.csproj": {
+    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\CadastroUsuario\\CadastroUsuario.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\CadastroUsuario\\CadastroUsuario.csproj",
+        "projectUniqueName": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\CadastroUsuario\\CadastroUsuario.csproj",
         "projectName": "CadastroUsuario",
-        "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\CadastroUsuario\\CadastroUsuario.csproj",
+        "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\CadastroUsuario\\CadastroUsuario.csproj",
         "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\CadastroUsuario\\obj\\",
+        "outputPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\CadastroUsuario\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",

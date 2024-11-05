@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/navbar/index'
-import fotoGustavo from '../../assets/image/foto_gustavo.jpg'
+import fotoGustavo from '../../assets/image/foto_gustavo.webp'
 import AcademySMText from '../../components/academySMText/Index'
 import './Index.css'
 import GroupsNavbar from '../../components/groupsNavbar/Index';

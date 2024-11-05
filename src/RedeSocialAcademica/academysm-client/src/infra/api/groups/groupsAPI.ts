@@ -2,8 +2,45 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios'
 import GroupViewModel from '../../../domain/models/viewModels/groupViewModel';
 import Courses from '../../../domain/models/apis/groups/courses'
 import CreateGroupViewModel from '../../../domain/models/apis/groups/return/createGroupViewModel';
+import Post from '../../../domain/models/apis/groups/post';
+import GroupHomeViewModel from '../../../domain/models/apis/groups/return/groupHomeViewModel';
 
 export default class GroupsAPI {
+    async accessGroup(id: number): Promise<GroupHomeViewModel> {
+        const api: AxiosInstance = axios.create({
+            baseURL: import.meta.env.VITE_GROUPS_API,
+            withCredentials: true
+        })
+
+        try {
+            const resultado: AxiosResponse = await api.get(`/api/Group/AccessGroup?id=${id}`)
+
+            const response: any = resultado.data
+
+            const posts: Array<Post> = response.posts.map((json: any) =>
+                new Post(json.id, json.title, json.dateCreation, json.content, json.groupId, json.userId))
+
+            return new GroupHomeViewModel(response.id, response.name, response.level, response.description, posts)
+        } catch (error: any) {
+            if (error.response) {
+                console.error('Erro: ', error.response.data)
+                console.log('Mensagem: ', error.response.message)
+                console.log('Status: ', error.response.status)
+                console.log('Headers: ', error.response.headers)
+
+                if (error.response.status === 403) {
+                    throw new Error('Erro 403, você não está autorizado a acessar esse grupo.')
+                }
+            } else if (error.request) {
+                console.error('Nenhuma Resposta Recebida: ', error.request)
+            } else {
+                console.error('Erro na Configuração da Requisição')
+            }
+
+            throw error
+        }
+    }
+
     async create(courses: Courses): Promise<CreateGroupViewModel> {
         const bodyRequest = {
             name: courses.getName(),

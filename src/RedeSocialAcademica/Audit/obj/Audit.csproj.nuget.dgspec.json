@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\Audit\\Audit.csproj": {}
+    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\Audit\\Audit.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\Audit\\Audit.csproj": {
+    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\Audit\\Audit.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\Audit\\Audit.csproj",
+        "projectUniqueName": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\Audit\\Audit.csproj",
         "projectName": "Audit",
-        "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\Audit\\Audit.csproj",
+        "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\Audit\\Audit.csproj",
         "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\Audit\\obj\\",
+        "outputPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\Audit\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",

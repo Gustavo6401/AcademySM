@@ -170,3 +170,16 @@ C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\R
 C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\AWSSDK.SecurityToken.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\DnsClient.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\MongoDB.Driver.Core.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\MongoDB.Libmongocrypt.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\Snappier.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Gustavo\Documents\Gustavo TI\Programação\AcademySM\AcademySMMonolit\RedeSocialAcademica\GroupsTest\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll

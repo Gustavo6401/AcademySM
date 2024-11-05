@@ -12,10 +12,7 @@ using CadastroUsuario.Domain.Models.MongoDBCollections.TokenPersistence;
 using CadastroUsuario.Infra.API.Groups;
 using CadastroUsuario.Infra.Authentication;
 using CadastroUsuario.Infra.BCryptServices;
-using CadastroUsuario.Infra.Repositories.MongoDb.SaltsDataPersistence;
-using CadastroUsuario.Infra.Tokens.IntermediateToken;
 using CadastroUsuario.Infra.Tokens.MainToken;
-using Microsoft.Win32;
 
 namespace CadastroUsuario.Presentation.ApplicationServices
 {
@@ -45,7 +42,7 @@ namespace CadastroUsuario.Presentation.ApplicationServices
             _saltsRepository = saltsRepository;
             _cookieAuthServices = cookieAuthServices;
         }
-        public async Task<string> CreateAsync(ApplicationUser user)
+        public async Task<UserCreateReturn> CreateAsync(ApplicationUser user)
         {
             // Checks wether user's e-mail already exists.
             ApplicationUser nullData = await _userRepository.GetByEmail(user.EMail!);
@@ -98,7 +95,11 @@ namespace CadastroUsuario.Presentation.ApplicationServices
 
             await _saltsRepository.Create(salts);
 
-            return "Usuário Cadastrado com Sucesso!";
+            return new UserCreateReturn
+            {
+                Message = "Usuário Cadastrado com Sucesso!",
+                UserId = id
+            };
         }
 
         public async Task DeleteAsync(Guid id)

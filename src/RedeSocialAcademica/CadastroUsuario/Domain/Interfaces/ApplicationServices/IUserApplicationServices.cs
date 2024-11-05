@@ -11,7 +11,7 @@ namespace CadastroUsuario.Domain.Interfaces.ApplicationServices
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        Task<string> CreateAsync(ApplicationUser user);
+        Task<UserCreateReturn> CreateAsync(ApplicationUser user);
         /// <summary>
         /// This method is responsible for user's deletions.
         /// </summary>

@@ -1,5 +1,5 @@
 import React from 'react';
-import fotoGustavo from '../../assets/image/foto_gustavo.jpg'
+import fotoGustavo from '../../assets/image/foto_gustavo.webp'
 import './Index.css'
 
 function SendSomething({ placeholder }) {

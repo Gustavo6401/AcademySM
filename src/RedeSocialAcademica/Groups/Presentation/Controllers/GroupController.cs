@@ -18,6 +18,23 @@ public class GroupController : ControllerBase, IGroupController
         _applicationServices = applicationServices;
     }
 
+    [HttpGet("AccessGroup")]
+    [Authorize]
+    public async Task<ActionResult<GroupsHomeViewModel>> AccessGroup(int id)
+    {
+        string role = User.FindFirst($"GroupRole-{id}")?.Value!;
+
+        // If the role is null or white space it means that the user is not able to access the group.
+        if(string.IsNullOrWhiteSpace(role))
+        {
+            return StatusCode(403);
+        }
+
+        GroupsHomeViewModel? group = await _applicationServices.AccessGroup(id);
+
+        return group!;
+    }
+
     [HttpPost]
     [Authorize(AuthenticationSchemes = "CookieAuth")]
     public async Task<ActionResult<CreateGroupViewModel>> Create(Courses courses)

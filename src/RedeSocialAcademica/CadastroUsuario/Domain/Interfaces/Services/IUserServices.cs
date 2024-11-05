@@ -66,7 +66,7 @@ namespace CadastroUsuario.Domain.Interfaces.Services
         /// </summary>
         /// <param name="password"></param>
         /// <returns></returns>
-        bool ContainsAtLeastSixteenCharacters(string password);
+        bool ContainsAtLeastEightCharacters(string password);
         /// <summary>
         /// Verifies whether the password contains in a sequence 5 Characters of the same type.
         /// 

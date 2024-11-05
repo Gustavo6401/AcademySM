@@ -1,6 +1,6 @@
 import './Index.css'
 
-export default function Post({ title, text, images }) {
+export default function PostComponent({ title, text, images }) {
     return (
         <section className='post'>
             <h1 className='post-title'>{title}</h1>

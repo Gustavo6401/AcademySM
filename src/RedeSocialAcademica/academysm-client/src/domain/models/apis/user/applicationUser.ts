@@ -10,10 +10,12 @@ export default class ApplicationUser {
     private curriculum: string
     private institution: string
     private passwordErrors: number = 0
+    private consentCookie: boolean = false
+    private consentPrivacyPolicy: boolean = false
 
     constructor(id: string, fullName: string, email: string, password: string, birthDate: Date, phone: string,
         educationalDegree: string, actualCourse: string, curriculum: string, institution: string,
-        passwordErrors: number) {
+        passwordErrors: number, consentCookie: boolean, consentPrivacyPolicy: boolean) {
         this.id = id
         this.fullName = fullName
         this.email = email
@@ -25,6 +27,8 @@ export default class ApplicationUser {
         this.curriculum = curriculum
         this.institution = institution
         this.passwordErrors = passwordErrors
+        this.consentCookie = consentCookie
+        this.consentPrivacyPolicy = consentPrivacyPolicy
     }
 
     getId(): string {
@@ -69,5 +73,13 @@ export default class ApplicationUser {
 
     getPasswordErrors(): number {
         return this.passwordErrors
+    }
+
+    getConsentCookies(): boolean {
+        return this.consentCookie
+    }
+
+    getConsentPrivacyPolicy(): boolean {
+        return this.consentPrivacyPolicy
     }
 }

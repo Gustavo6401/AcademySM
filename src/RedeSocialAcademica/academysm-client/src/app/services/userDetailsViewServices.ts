@@ -8,5 +8,11 @@ export default class UserDetailsViewServices {
         const model: UserDetailsViewModel = await this.userDetailsAPI.userDetails(id)
 
         return model
-    } 
+    }
+
+    async ownsProfile(id: string): Promise<string> {
+        const response: string = await this.userDetailsAPI.ownProile(id)
+
+        return response
+    }
 }

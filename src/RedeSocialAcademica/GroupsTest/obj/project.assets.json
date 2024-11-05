@@ -4973,11 +4973,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\GroupsTest\\GroupsTest.csproj",
+      "projectUniqueName": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\GroupsTest\\GroupsTest.csproj",
       "projectName": "GroupsTest",
-      "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\GroupsTest\\GroupsTest.csproj",
+      "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\GroupsTest\\GroupsTest.csproj",
       "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\GroupsTest\\obj\\",
+      "outputPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\GroupsTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4994,8 +4994,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\Groups\\Groups.csproj": {
-              "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-October-15-2024\\AcademySM\\src\\RedeSocialAcademica\\Groups\\Groups.csproj"
+            "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\Groups\\Groups.csproj": {
+              "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\Groups\\Groups.csproj"
             }
           }
         }

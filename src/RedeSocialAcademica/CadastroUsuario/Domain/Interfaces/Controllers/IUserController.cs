@@ -12,7 +12,7 @@ namespace CadastroUsuario.Domain.Interfaces.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         Task<ActionResult<ApplicationUser>> Index(Guid id);
-        Task<ActionResult<string>> Create(ApplicationUser user);
+        Task<ActionResult<UserCreateReturn>> Create(ApplicationUser user);
         Task<ActionResult<ApplicationUser>> GetByEmail(string email);
         Task<ActionResult<LoginReturn>> Login(Login login);
         Task<ActionResult> Delete(Guid id);

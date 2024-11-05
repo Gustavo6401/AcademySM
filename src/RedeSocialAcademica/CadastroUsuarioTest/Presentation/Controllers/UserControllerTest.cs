@@ -11,6 +11,7 @@ using CadastroUsuario.Domain.Models.MongoDBCollections.BCryptPersistence;
 using CadastroUsuario.Domain.Models.MongoDBCollections.TokenPersistence;
 using CadastroUsuario.Domain.Services;
 using CadastroUsuario.Infra.API.Groups;
+using CadastroUsuario.Infra.Authentication;
 using CadastroUsuario.Infra.Context;
 using CadastroUsuario.Infra.Cookies;
 using CadastroUsuario.Infra.Repositories.MongoDb.SaltsDataPersistence;
@@ -45,6 +46,7 @@ namespace CadastroUsuarioTest.Presentation.Controllers
         private readonly IUserApplicationServices _applicationServices;
         private readonly IUserController _controller;
         private readonly ISaltsRepository _saltsRepository;
+        private readonly CookieAuthServices _cookieAuthServices;
         public UserControllerTest()
         {
             _services = new UserServices();
@@ -99,8 +101,11 @@ namespace CadastroUsuarioTest.Presentation.Controllers
             HttpClient client = new HttpClient();
             _groupsUsersAPI = new GroupsUsersAPI(client);
 
+            _cookieAuthServices = new CookieAuthServices(httpContextAcessor);
+
             _applicationServices = new UserApplicationServices(_services, _repository, _tokenRepository,
-                _lockoutRepository, _lockoutServices, _cookieConfiguration, _groupsUsersAPI, _saltsRepository);
+                _lockoutRepository, _lockoutServices, _cookieConfiguration, _groupsUsersAPI, _saltsRepository,
+                _cookieAuthServices);
 
             _controller = new UserController(_applicationServices);
         }
