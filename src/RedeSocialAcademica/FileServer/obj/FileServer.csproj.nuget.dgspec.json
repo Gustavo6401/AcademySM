@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\FileServer.csproj": {}
+    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-November-1-2024\\AcademySM\\src\\RedeSocialAcademica\\FileServer\\FileServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\FileServer.csproj": {
+    "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-November-1-2024\\AcademySM\\src\\RedeSocialAcademica\\FileServer\\FileServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\FileServer.csproj",
+        "projectUniqueName": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-November-1-2024\\AcademySM\\src\\RedeSocialAcademica\\FileServer\\FileServer.csproj",
         "projectName": "FileServer",
-        "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\FileServer.csproj",
+        "projectPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-November-1-2024\\AcademySM\\src\\RedeSocialAcademica\\FileServer\\FileServer.csproj",
         "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\obj\\",
+        "outputPath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-November-1-2024\\AcademySM\\src\\RedeSocialAcademica\\FileServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",

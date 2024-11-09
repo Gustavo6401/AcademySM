@@ -80,6 +80,94 @@ Você verá a Seguinte Janela:
 
 ![Clique em OK](<../imgs/4.7 - Selecionar Projetos para Inicializar.png>)
 
-#### 7. Selecione **CadastroUsuario* como o projeto padrão
+#### 7. Selecione **CadastroUsuario** como o projeto padrão no console do gerenciador de pacotes.
 
 ![Cadastro Usuário](<../imgs/5.6 - CadastroUsuario.png>)
+
+#### 8. Digite o comando `Update-Database` após ter instalado as dependências do SQL Server no console do gerenciador de pacotes.
+
+![Update-Database](<../imgs/5.7 - Update Database.png>)
+
+#### 9. Inicie as aplicações com o botão iniciar.
+
+![Clique em Iniciar](<../imgs/4.9 - Clique em Iniciar.png>)
+
+#### 10. Pronto! 
+
+## Estrutura do Projeto
+
+Após entrar em **RedeSocialAcademica** >> **Server** >> **CadastroUsuario** você verá a seguinte imagem:
+
+![Cadastro de Usuário - Diretórios](<../imgs/5.8 - Cadastro de Usuário - Diretórios.png>)
+
+A estrutura de pastas foi pensada nos princípios do Domain Driven Design, aqui, vamos falar sobre as pastas principais
+
+### Domain
+
+Domain ou camada de domínio, é o ponto principal da API de Cadastro de Usuário, aqui, ficam todas as Models e a maioria das regras de negócio. O objetivo é ser uma pasta sem alguma dependência externa, possuíndo assim, apenas código da própria aplicação. Essa pasta possui três subpastas principais: **Models**, **Interfaces** e **Services**
+
+#### Interfaces
+
+Interfaces é uma das pastas principais do projeto, o objetivo é utilizar o padrão da injeção de dependência e ditar regras de nomenclatura e retorno para todos os métodos criados dentro da Academy SM, especialmente os de validação de dados e de interação com o banco de dados. Possuíndo assim, algumas pastas, tais como **ApplicationServices**, **Cookies**, **Controllers**, **Repositories** e **Services**;
+
+#### Models
+
+A pasta Models igualmente é importantíssima, o objetivo dessa pasta é criar todas as classes que servirão de instância para os objetos e que fazem uso apenas de tipos primitivos ou de recursos nativos da linguagem C#. Ficou confusa a explicação? Para simplificar, vamos ao seguinte exemplo: Digamos que você tenha um banco de dados de marcas de carro, onde você tenha como principais propriedades, o Id da Marca, o Nome da Marca e o País da Marca. Criemos a classe Marca da seguinte forma: 
+
+``` csharp
+public class Marca 
+{
+    public int Id { get; set; }
+    public string? Nome { get; set; }
+    public string? Pais { get; set; }
+}
+```
+
+Pensando nisso, foi justamente por isso que criei a pasta Models. Cada uma dessas classes Models são reutilizáveis em múltiplos contextos de código, tais como na hora de fazer a criação das rotas HTTP nas Controllers, ou até mesmo na hora de fazer a interoperabilidade com o banco de dados por meio de referências externas com o Entity Framework. 
+
+Se uma determinada classe Apenas contém dependências nativas à linguagem C#, é necessário que ao fazer seu pull request, que você crie essa classe diretamente na pasta Models. Caso contrário, pode criar diretamente na camada de infraestrutura, a exemplo do que acontece com a classe `SaltsDataDocument`, que utiliza dependências do pacote MongoDBClient, como o `ObjectId`:
+
+``` csharp
+public class SaltsDataDocument
+{
+    public ObjectId Id { get; set; }
+    public string? Salt { get; set; }
+    public string? Email { get; set; }
+}
+```
+
+A pasta Models ainda é dividida em outras 4 subpastas
+
+1. Models (Pasta principal) - Na pasta principal, coloquei os Modelos responsáveis por interagir com a camada Controllers e com a camada de Dados.
+2. API - Modelos responsáveis pela busca de dados dentro de APIs externas.
+3. ControllerModels - Talvez a mais interessante: Muitas vezes, eu não escrevo o Front-End para o Back-End e sim o contrário. Como assim? Muitas vezes, precisamos de dados do usuário como o E-mail, a senha justamente para fazer o cadastro dele, mas evidentemente na tela de portfólio que não exibiremos o hash da senha né? 😅. Pensando justamente nisso, criei a pasta ControllerModels, com o objetivo de fornecer para o meu front-end as informações que ele realmente precisa.
+4. Enums - Enums foi uma pasta que admito ter deixado de lado por conta da complexidade de se trabalhar com eles. Mas o objetivo foi justamente guardar dados relevantes como `EducationalBackgrounds` ou formações Educacionais, que contém dados que podem ser muito bem utilizados por meio de um DropDownList, ou Status do Curso. O status do curso só tem 3 dados possíveis: Concluído, Trancado ou Cursando, correto? Pensando justamente nisso eu pensei em criar Enums. Creio que o fato dos Enums estarem deixados de lados é algo sujeito a mudanças. Digo isso porque recentemente, me aperfeiçoei no design pattern strategy, o que acredite: me faria converter esses Enums para strings com muito mais facilidade, apesar do trabalho da conversão em si.
+5. MongoDBCollections - Acredito que o próprio nome já fala por si só. Modelos do MongoDB escritos com recursos da linguagem C#. O que me permite fazer isso é justamente o fato de que eu escrevi uma forma de mapear as entidades diretamente na minha classe Program, o que me permite deixar o meu domíno limpo de dependências externas.
+
+``` csharp
+BsonClassMap.RegisterClassMap<SaltsData>(salts =>
+{
+    salts.AutoMap();
+    salts.MapIdProperty(s => s.Id)
+        .SetIdGenerator(ObjectIdGenerator.Instance);
+});
+```
+
+#### Services
+
+O objetivo dessa pasta, é conter as principais regras de negócio do sistema, tais como validações de senha e validação de dados simples, como os dados de usuário e de links. Caso a validação de um determinado dado não seja satisfeita, é jogado para o cliente lá na classe controller um erro 400 BadRequest e uma exceção é gerada (que deve ser tratada diretamente no Controller).
+
+``` csharp
+public void ValidateLink(string? link)
+{
+    // Code generated with ChatGPT.
+    if (string.IsNullOrWhiteSpace(link) ||
+        !Uri.TryCreate(link, UriKind.Absolute, out Uri? uriResult) ||
+        (uriResult.Scheme != Uri.UriSchemeHttp && uriResult.Scheme != Uri.UriSchemeHttps))
+    {
+        throw new ArgumentException("Link Inválido.");
+    }
+}
+```
+
+Esse código por exemplo, tem a responsabilidade de fazer a validação do link e verificar se esse link funciona corretamente. Esse código é usado especialmente quando o usuário for fazer o cadastro de um link.
