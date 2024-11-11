@@ -171,3 +171,266 @@ public void ValidateLink(string? link)
 ```
 
 Esse código por exemplo, tem a responsabilidade de fazer a validação do link e verificar se esse link funciona corretamente. Esse código é usado especialmente quando o usuário for fazer o cadastro de um link.
+
+### Infra
+
+O objetivo da Infra é integrar a API com as suas dependências externas, tais como Bancos de Dados, APIs externas ou bibliotecas de terceiros. Sendo dividida especialmente, entre 10 subpastas, sendo elas:
+
+1. API - Tem por objetivo a comunicação entre serviços de API externos, tais como a própria API de Grupos da Academy SM.
+2. Authentication - Tem por responsabilidade guardar o código dos serviços de autenticação da Academy SM.
+3. BCryptServices - Responsável pela comunicação com os serviços do BCrypt.
+4. Context - Carrega a classe `UserDbContext` do EntityFrameworkCore, responsável por gerar o código da pasta Migrations, responsável por criar e gerenciar as bases de dados da Academy SM.
+5. Cookies - Configuração e compartilhamento de Cookies da API de Cadastro de Usuário.
+6. EnumConverters - Responsável por converter Enums.
+7. FileUpload (Descontinuado) - Servia como Upload de imagem antes da API de Servidor de Imagens.
+8. RabbitMQ - Comunicação com os serviços do RabbitMQ.
+9. Repositories - Camada de comunicação com os bancos de dados do MongoDB e do SQL Server.
+10. Tokens - Criação e administração de Tokens de acesso.
+
+``` csharp
+public override async Task CreateAsync(ApplicationUser entity)
+{
+    _context.ApplicationUser.Add(entity);
+
+    await _context.SaveChangesAsync();
+}
+```
+
+Utilizei como Exemplo, a classe `UserRepository`, da camada de Infraestrutura, na pasta Repositories.SqlServer.
+
+![Infra](<../imgs/5.9 - Cadastro de Usuário - Infra.png>)
+
+### Presentation
+
+A camada de apresentação é responsável pela orquestração de serviços entre Domínio e Infraestrutura e pela comunicação direta com o cliente. Ela tem duas subpastas, sendo elas:
+
+1. **ApplicationServices** - Responsável pela orquestração entre domínio e infraestrutura. Aqui eu mantive as regras de negócio que dependem diretamente da camada de infraestrutura, como validações de bloqueio de usuário que dependem de buscas ao banco de dados para funcionarem corretamente.
+2. **Controllers** - Responsável pela comunicação HTTP entre o servidor e o cliente.
+
+## Principais Funcionalidades
+
+A API de Cadastro de Usuário é importante por uma série de motivos, dentre eles:
+
+1. **Gerenciar as Bases de Dados de Autenticação e de Cadastro de Usuário** - Responsável pela administração e pelas mudanças nas bases de dados relacionadas ao cadastro de usuário, dentre elas o serviço de manutenção dos Tokens, das Salts e de dados mais sensíveis do usuário, como os dados de contato. Essa é a principal funcionalidade das pastas Infra e Migrations.
+2. **Gerenciar os Cookies de Autenticação** - Essa API é responsável por criar e compartilhar com suas aplicações intermediárias os Cookies de autenticação. 
+3. **Validação de Dados Sensíveis** - As senhas e o cadastro de usuário são devidamente validados e no caso do lançamento errôneo de um determinado dado, é lançado um erro `400 BadRequest`. Além disso, vale destacar a regra de senhas, que exige que as senhas tenham no mínimo 8 caracteres de comprimento e que o usuário cadastre letras maiúsculas, minúsculas, números e caracteres especiais.
+4. **Realizar as Chamadas HTTP** - As chamadas HTTP relacionadas ao cadastro de usuário são feitas diretamente à essa API, mais especificamente na pasta Controllers.
+
+## Explicação do Código:
+
+Alguns trechos críticos do código podem ser explicados diretamente aqui na documentação.
+
+### 1 - Presentation.ApplicationServices.UserApplicationServices.Login()
+
+``` csharp
+public async Task<LoginReturn> Login(Login login)
+{
+    // Recupera a Salt.
+    SaltsData salts = await _saltsRepository.GetSaltByEmail(login.Email!);
+
+    // Reconstrói a senha baseada na senha informada pelo usuário e a salt.
+    login.Password = PasswordHashing.HashPassword(login.Password!, salts.Salt!);
+
+    // Checks wether the user and password are correct.
+    // Verifica se o E-Mail e se o hash da senha estão corretos.
+    LoginInformations loginInformations = await _userRepository.Login(login.Email!, login.Password!);
+
+    // Busca o usuário no banco de dados, utilizamos esse recurso se o usuário estiver bloqueado, além de usarmos o ID dele.
+    ApplicationUser user = await _userRepository.GetByEmail(login.Email!);
+
+    // Adiciona um erro à conta do usuário
+    if (loginInformations == null)
+    {
+        // Se o usuário já tiver 10 erros na conta, ele estará bloqueado.
+        if (user.PasswordErrors >= 10)
+        {
+            // Salva o bloqueio no banco de dados.
+            UserLockout lockout = await _userLockoutRepository.GetLastUserLockoutByUserId(user!.Id);
+
+            /* Verifica o tempo correto de bloqueio.
+            * 1º Erro - 5 minutos de bloqueio
+            * 2º Erro - 10 minutos de bloqueio
+            * 3º Erro - 15 minutos de bloqueio
+            * 4º Erro - 30 minutos de bloqueio.
+            * 5º Erro - 60 minutos de bloqueio.
+            */
+            int blockTime = _userLockoutServices.TimeBlock(lockout);
+
+            // en Creates an lockout when user.PasswordErros >= 10;
+            // pt-br Bloqueia o usuário quando user.PasswordErrors >= 10;
+            lockout = new UserLockout
+            {
+                LockoutDate = DateTime.Now + TimeSpan.FromMinutes(blockTime),
+                QtdMinutes = blockTime,
+                UserId = user!.Id
+            };
+
+            // Salva o Bloqueio no Banco de dados.
+            await _userLockoutRepository.CreateAsync(lockout);
+
+            // Gera uma exceção interrompendo o fluxo de código.
+            throw new ArgumentException($"Usuário Bloqueado durante {blockTime} minutos");
+        }
+
+        // Caso o usuário tenha menos que 9 erros, apenas um erro é adicionado à conta dele.
+        user.PasswordErrors++;
+        // Salva as informações no banco de dados.
+        await _userRepository.UpdateAsync(user);
+
+        // Gera uma exceção interrompendo o fluxo de código.
+        throw new ArgumentException("E-Mail ou Senha Incorretos!");
+    }
+
+    // FLUXO NORMAL
+
+    // Busca todos os grupos onde ele está cadastrado, informação relevante na hora de fazer login.
+    // Busca na API de Grupos.
+    List<GroupsUsers> groupsUsers = await _groupsUserAPI.GetAllGroupsUsers(loginInformations.Id);
+
+    // Gera o Token baseado nos dados do usuário e nos grupos que ele participa.
+    string token = MainTokenService.GenerateToken(user, groupsUsers);
+
+    // en Save the Main Token in an HTTPOnlyCookie.
+    // en _cookieConfiguration.DeleteHttpOnlyCookie("MainToken");
+    // pt-br Salva o Token principal num CookieHTTPOnly.
+    await _cookieAuthServices.LoginAsync(user.Id, token, groupsUsers);
+
+    // en Save the Main Token in MongoDB.
+    // pt-br Cria uma classe com o Main Token
+    TokenData data = new TokenData
+    {
+        DataCriacaoToken = DateTime.Now,
+        Token = token,
+        UsuarioId = Convert.ToString(loginInformations.Id)
+    };
+
+    // Salva o MainToken no MongoDB.
+    await _tokenRepository.Create(data);
+
+    // Os dados na classe LoginReturn são extremamente relevantes, o usuário utilizará todos no Front-End.
+    LoginReturn loginReturn = new LoginReturn
+    {
+        Id = loginInformations!.Id,
+        UserFullName = loginInformations.FullName,
+        UserProfilePicPath = loginInformations!.ProfilePicPathName,
+        ReturnMessage = "Usuário Logado com Sucesso!"
+    };
+
+    return loginReturn;
+}
+```
+
+Essa funcionalidade tem diversos objetivos em questão: 
+
+1. Buscar a Salt relacionada com o E-Mail do usuário - As salts são guardadas num banco de dados do MongoDB, servindo de tempero para as senhas do usuário.
+2. Reconstruir o Hash Bcrypt. 
+3. Verificar se o Bcrypt foi inserido no banco de dados.
+4. Caso o usuário estiver errado, Verifica se esse já é o 10º erro.
+5. Se for o 10º Erro, bloqueia ele.
+6. Caso não seja o 10º erro, apenas adiciona um erro à conta.
+7. Joga uma exceção caso o usuário tenha errado a senha, seja avisando que ele foi bloqueado ou que o usuário apenas errou a senha.
+8. Gera o Token e os Cookies de Autenticação.
+9. Retorna informações que serão enviadas para o localStorage no projeto [academysm-client](<4 - academysm-client.md>), como o Id, o Nome completo, o nome do arquivo da foto de perfil e uma mensagem avisando que o login foi efetuado.
+
+Para o futuro, uma modificação importante é zerar o número de erros, o motivo? Bom, a minha meta com o sistema de bloqueio era evitar ataques de força bruta, porém, o que acontece é que se o usuário errar a senha 10 vezes **em dias diferentes**, ele será bloqueado mesmo assim. Para modificar isso, creio que o ideal seria guardar a data do último erro. Pode ser em uma collection do próprio MongoDB. Essa arquitetura foi pensada justamente em evitar invasões.
+
+### 2 - Domain.Models.ControllerModels.LoginReturn
+
+``` csharp
+public class LoginReturn
+{
+    public Guid Id { get; set; }
+    public string? UserFullName { get; set; }
+    public string? UserProfilePicPath { get; set; }
+    public string? ReturnMessage { get; set; }
+}
+```
+
+Cada trecho de código foi minuciosamente pensado.
+
+1. **Id** - O Id deve ser retornado especialmente porque o usuário precisará depois para acessar o próprio portfólio, além disso, o Id é mantido no localStorage com o objetivo de fazer determinadas verificações, como a exibição de certos componentes React no Front-End.
+2. **UserFullName e UserProfilePicPath** - O nome completo do usuário foi pensado para ser utilizado especialmente quando as funcionalidades de rede social estiverem funcionando corretamente, na imagem abaixo, poderemos ver que a cada interação em determinadas redes sociais, tais como o Quora e o Facebook, você poderá ver o seu nome de usuário após uma interação, como o envio de um artigo. 
+3. **ReturnMessage** - Mensagem de retorno após o login.
+
+![Ciclo é Coisa de Maromba 😅](<../imgs/5.10 - Ciclo é Coisa de Maromba.png>)
+
+Ciclo é coisa de maromba!
+
+### 3 - Presentation.ApplicationServices.UserApplicationServices.CreateAsync()
+
+``` csharp
+public async Task<UserCreateReturn> CreateAsync(ApplicationUser user)
+{
+    // en Checks wether user's e-mail already exists.
+    // pt-br Verifica se o E-Mail do usuário já existe.
+    ApplicationUser nullData = await _userRepository.GetByEmail(user.EMail!);
+
+    // Se o e-mail já existir na base da dados, jogo uma exceção.
+    if(nullData != null)
+    {
+        throw new ArgumentException("E-Mail já Existente no Banco de Dados");
+    }
+
+    // Crio uma Salt com 15 de fator de trabalho. O recomendado nos tempos de hoje é entre 10 e 12, porém, o meu objetivo é que os hackers TENHAM MEDO DE TENTAR ATAQUES DE FORÇA BRUTA. Por isso, eu coloquei 15 de fator de trabalho.
+    string salt = PasswordHashing.GenerateSalt(15);
+
+    // en Validate user's data.
+    // pt-br Utiliza os serviços de domínio para validar os dados de usuário.
+    _userServices.ValidateUserOnCreate(user);
+
+    // en Generates a new Guid.
+    // pt-br Gera um Guid.
+    Guid id = Guid.NewGuid();
+
+    // en Hashes Password Using BCrypt
+    // pt-br "Hesha" a senha usando BCrypt
+    user.Password = PasswordHashing.HashPassword(user.Password!, salt);
+    // en Inserts new Id into user.Id:
+    // Guarda o Id no objeto user.
+    user.Id = id;
+
+    // Cria o usuário no banco de dados.
+    await _userRepository.CreateAsync(user);
+    // en When the user is being created, it doesn't have any groups.
+    // pt-br Quando o usuário está sendo criado, ele não tem nenhum grupo, por isso achei melhor instanciar essa classe.
+    List<GroupsUsers> groupsUsers = new List<GroupsUsers>();
+
+    // Gera nosso Token JWT.
+    string token = MainTokenService.GenerateToken(user, groupsUsers);
+
+    // en Save the Main Token in MongoDB.
+    // pt-br. Salva o Token no MongoDB.
+    TokenData data = new TokenData
+    {
+        DataCriacaoToken = DateTime.Now,
+        Token = token,
+        UsuarioId = Convert.ToString(user.Id)
+    };
+
+    await _tokenRepository.Create(data);
+
+    // Deleta Tokens antigos.
+    _cookieConfiguration.DeleteHttpOnlyCookie("Token");
+    // Se o usuário estiver logado em alguma outra conta, esse serviço faz Logoff.
+    await _cookieAuthServices.LogoutAsync();
+    // Agora Loga com a senha nova.
+    await _cookieAuthServices.LoginAsync(user.Id, token, groupsUsers);
+
+    // Salva a salt no banco de dados.
+    SaltsData salts = new SaltsData
+    {
+        Email = user.EMail,
+        Salt = salt
+    };
+
+    // Salva a Salt no MongoDB.
+    await _saltsRepository.Create(salts);
+
+    // Envia uma mensagem para o usuário junto com o Id dele.
+    return new UserCreateReturn
+    {
+        Message = "Usuário Cadastrado com Sucesso!",
+        UserId = id
+    };
+}
+```
