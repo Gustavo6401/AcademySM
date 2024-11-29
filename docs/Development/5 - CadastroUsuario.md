@@ -434,3 +434,122 @@ public async Task<UserCreateReturn> CreateAsync(ApplicationUser user)
     };
 }
 ```
+
+Essa funcionalidade tem um fluxo extenso e demorado que vou simplificar por aqui:
+
+1 - Verifica se o E-Mail do usuário já existe no banco de dados (semelhante ao Identity do EFCore.);
+2 - Gera uma Salt com 15 de fator de trabalho, a ideia é DE FATO evitar ataques de força bruta;
+3 - Faz a validação do usuário na classe `UserServices`;
+4 - Cria um Guid para ser inserido junto com os demais dados do usuário, esse passo é importante pois diferentemente de outras aplicações, aqui o Guid não é auto-gerado;
+5 - "Hasha" a Senha utilizando BCrypt;
+6 - Gera um Token de acesso;
+7 - Desloga o usuário e loga ele na aplicação;
+8 - Salva a Salt no Banco de dados;
+9 - Até então, retorna alguns dados específicos, como uma mensagem e o Id do usuário.
+
+Perceba que o Id é utilizado pela própria aplicação, especialmente no Front-End, por isso, é vital que ele seja retornado junto com os outros dados.
+
+### 4 - Program.cs - Configuração da Autenticação e Autorização do ASP.Net Core:
+
+``` csharp
+/*
+* en
+* If we need to share the Cookie Authentication with another application, it's important to use Data protection technology.
+* My Data Protection Key is expiring at the same time as the cookie.
+* 
+* pt-Br
+* Se precisarmos compartilhar o Cookie com alguma outra aplicação, é importante utilizarmos a tecnologia do Data Protection. 
+* Minha Data Protection Key expira ao mesmo tempo que o Cookie.
+*/
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo("C:\\AspNet-DataProtection-keys"))
+    .SetDefaultKeyLifetime(TimeSpan.FromDays(90))
+    .SetApplicationName("CadastroUsuario");
+
+/*
+* en
+* I had to use ASP.Net Core Cookie Authentication in this web app.
+*
+* pt-Br
+* Eu tive que usar a Autenticação dos Cookies nessa aplicação.
+*/
+builder.Services.AddAuthentication("CookieAuth")
+    .AddCookie("CookieAuth", o =>
+    {
+        o.Cookie.Name = "Token";
+        /*
+        * en
+        * The Cookie expires in 90 days if the user isn't using our web app.
+        *
+        * pt-Br
+        * O Cookie deve expirar em 90 dias se o usuário não estiver usando a nossa aplicação
+        */
+        o.ExpireTimeSpan = TimeSpan.FromDays(90);
+        /*
+        * en
+        * The Cookie isn't accessible by navigator JavaScript.
+        *
+        * pt-Br
+        * O Cookie não é acessível pelo JavaScript do navegador.
+        */
+        o.Cookie.HttpOnly = true;
+        /*
+        * en
+        * If the user is accessing our application and using the Cookie, the expiration account is restarted.
+        *
+        * pt-Br
+        * Se o usuário estiver acessando nosso aplicativo e usando o Cookie, a expiração dele será recomeçada.
+        */
+        o.SlidingExpiration = true;
+        o.Cookie.SameSite = SameSiteMode.None;
+        o.Cookie.Domain = "localhost";
+        o.Cookie.Path = "/";
+        o.Cookie.SecurePolicy = CookieSecurePolicy.Always; // HTTPS is necessary - HTTPS é necessário.
+        o.Events.OnRedirectToLogin = context =>
+        {
+            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            return Task.CompletedTask;
+        };
+        o.DataProtectionProvider = DataProtectionProvider.Create(new DirectoryInfo("C:\\AspNet-DataProtection-keys"));
+    });
+```
+
+Pesquisei por meses por essa abordagem e uma série que foi útil estava falando justamente sobre autenticação e autorização no ASP.Net Core. 
+
+O objetivo era que meu site tivesse senhas segura e que a conta de um usuário não pudesse ser invadida utilizando-se do JavaScript do navegador, por causa disso, me dei conta de que talvez eu precisasse combinar métodos. Inicialmente, a minha ideia era colocar um Cookie no localStorage, semelhante ao que outros sistemas utilizam. Porém, isso deixa o Cookie vúlneravel a invasões externas, inclusive, já fiz um teste com um site famoso, criei uma conta nesse site e copiei o conteúdo do localStorage no Microsoft Edge (que é o navegador que mais uso), e colando no localStorage do Google, fazendo assim um ataque XSS. Advinhe só? É muito simples ganhar acesso a um site onde o Token de Acesso está armazenado em uma API nativa do navegador como o localStorage. 
+
+Por isso, o que eu achei ideal seria a combinação de muitos e muitos métodos de uma só vez.
+
+**Cookies HTTPOnly**
+
+Cookies HTTPOnly achei que seriam uma excelente alternativa, até porque os dados desse Cookie não serão tão acessíveis assim em minha aplicação, para ser mais exato, eles necessitam que o JavaScript do navegador ao compartilhar esse cookie utilizem o header `withCredentials()` especialmente no axios para o compartilhamento do Cookie. Especialmente por serem menos acessíveis que outros meios.
+
+``` typescript
+// Necessita do withCredentials.
+const api: AxiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_GROUPS_API,
+    withCredentials: true
+})
+```
+
+E melhor ainda, aparentemente a CookieAuth do ASP.Net Core faz todo o trabalho para mim de validação das credenciais do usuário. 
+
+**Tokens**
+
+Tokens de acesso eram usados na primeira versão da Academy SM, porém, hoje em dia eles atuam como uma espécie de Role para os meus Cookies que serão os verdadeiros responsáveis pela autenticação e autorização. Contendo informações importantes, como o número de grupos do usuário, o token de acesso, e informações como o e-mail.
+
+Essa é uma abordagem que evita certos ataques computacionais preservando a eficiência da aplicação.
+
+## Contribuição
+
+Assim como no Academy SM Client, você pode nos ajudar contribuíndo com a sua ajuda! Especialmente se você for um desenvolvedor .NET. Porém, claramente os padrões são exigidos, solicitamos então uma Issue com uma Feature Request na Aba Issues e assim liberamos para que você possa desenvolver esse projeto.
+
+## Licença
+
+Esse projeto é mantido por uma licença Apache, o que significa que você pode copiar, alterar e comercializar esse código à vontade desde que você dê os devidos créditos.
+
+## Agradecimentos
+
+Muito obrigado pela atenção! Solicitamos que você também leia a próxima parte da documentação, a parte de [Grupos](<6 - Groups.md>).
+
+O ser humano é naturalmente polímata!

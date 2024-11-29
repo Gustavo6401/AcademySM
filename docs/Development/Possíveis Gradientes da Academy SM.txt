@@ -1,0 +1,9 @@
+Possíveis Gradientes:
+
+background: linear-gradient(to bottom left, #c32323, #0047fd);
+background: linear-gradient(to bottom left, #c32323, #F04D53);
+background: linear-gradient(to bottom left, #c32323, #FF7D7B);
+background: linear-gradient(to bottom left, #c32323, #ff9d9b);
+background: linear-gradient(to bottom left, #c32323, #FAD3CB);
+background: linear-gradient(to bottom left, var(--vermelho), var(--preto-apagado));
+background: linear-gradient(to bottom left, #c32323, #0d208b);
