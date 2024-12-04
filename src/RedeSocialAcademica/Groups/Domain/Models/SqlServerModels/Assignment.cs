@@ -9,6 +9,7 @@ namespace Groups.Domain.Models.SqlServerModels
         public DateTime DateCreation { get; set; }
         public DateTime DueDate { get; set; }
         public float NoteValue { get; set; }
+        public Guid PublicId { get; set; }
 
         public Courses? Group { get; set; }
         public int GroupId { get; set; }

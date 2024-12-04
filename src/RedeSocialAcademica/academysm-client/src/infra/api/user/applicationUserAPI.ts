@@ -4,6 +4,10 @@ import UserDetailsViewModel from "../../../domain/models/viewModels/userDetailsV
 import FormationsName from "../../../domain/models/viewModels/formationsName";
 import LoginViewModel from "../../../domain/models/viewModels/loginViewModel";
 import UserCreateResponse from "../../../domain/models/apis/user/userCreateResponse";
+import PortfolioCourses from "../../../domain/models/viewModels/portfolio/portfolioCourses";
+import PortfolioLink from "../../../domain/models/viewModels/portfolio/portfolioLink";
+import ParticipantGroup from "../../../domain/models/viewModels/portfolio/participantGroup";
+import UserPortfolio from "../../../domain/models/viewModels/portfolio/userPortfolio";
 
 export default class ApplicationUserAPI {
     async createAsync(user: ApplicationUser): Promise<UserCreateResponse> {
@@ -34,6 +38,30 @@ export default class ApplicationUserAPI {
 
         } catch (error) {
             console.error('Erro ao Fazer a Requisição: ', error)
+
+            throw error
+        }
+    }
+
+    async deleteAsync(id: string) {
+        let api: AxiosInstance = axios.create({
+            baseURL: import.meta.env.VITE_USER_API,
+            withCredentials: true
+        })
+
+        try {
+            await api.delete(`/api/User?id=${id}`)
+        } catch (error: any) {
+            if (error.response) {
+                console.error('Erro: ', error.response.data)
+                console.log('Mensagem: ', error.response.message)
+                console.log('Status: ', error.response.status)
+                console.log('Headers: ', error.response.headers)
+            } else if (error.request) {
+                console.error('Nenhuma Resposta Recebida: ', error.request)
+            } else {
+                console.error('Erro na Configuração da Requisição')
+            }
 
             throw error
         }
@@ -160,6 +188,46 @@ export default class ApplicationUserAPI {
             const result: string = resultado.data
 
             return result
+        } catch (error: any) {
+            if (error.response) {
+                console.error('Erro: ', error.response.data)
+                console.log('Mensagem: ', error.response.message)
+                console.log('Status: ', error.response.status)
+                console.log('Headers: ', error.response.headers)
+            } else if (error.request) {
+                console.error('Nenhuma Resposta Recebida: ', error.request)
+            } else {
+                console.error('Erro na Configuração da Requisição')
+            }
+
+            throw error
+        }
+    }
+
+    async portfolio(id: string): Promise<UserPortfolio> {
+        let api = axios.create({
+            baseURL: import.meta.env.VITE_USER_API
+        })
+
+        try {
+            const resultado: AxiosResponse = await api.get(`/Portfolio?id=${id}`)
+
+            const response: any = resultado.data
+            const educationalBackgrounds: Array<any> = response.courses // User's educational backgrounds
+            const links: Array<any> = response.links // User's links.
+            const academySMGroups: Array<any> = response.academySMGroups // Groups that a user is in Academy SM.
+
+            const listEducationalBackgrounds: Array<PortfolioCourses> = educationalBackgrounds.map((json: any) =>
+                new PortfolioCourses(json.courseId, json.name))
+
+            const listLinks: Array<PortfolioLink> = links.map((json: any) =>
+                new PortfolioLink(json.id, json.name, json.origin, json.link))
+
+            const listAcademySMGroups: Array<ParticipantGroup> = academySMGroups.map((json: any) =>
+                new ParticipantGroup(json.groupId, json.groupName, json.role, json.categoryIcon))
+
+            return new UserPortfolio(response.userId, response.userName, response.curriculum,
+                response.profilePic, listEducationalBackgrounds, listLinks, listAcademySMGroups)
         } catch (error: any) {
             if (error.response) {
                 console.error('Erro: ', error.response.data)

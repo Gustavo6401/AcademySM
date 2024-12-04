@@ -36,13 +36,13 @@ function Login() {
                         <input className='formInputType-2' type='password' placeholder='Senha' onChange={e => setPassword(e.target.value)} />
                     </div>
                     <div className='componentIsolator-1'>
-                        <button className='button-large cinza'>Esqueceu Sua Senha?</button>
+                        <button className='medium branco'>Esqueceu Sua Senha?</button>
                     </div>
                     <div className='componentIsolator-1'>
-                        <button className='button-large vermelho' onClick={logar}>Login</button>
+                        <button className='medium azul-escuro' onClick={logar}>Login</button>
                     </div>
                     <div className='componentIsolator-1'>
-                        <button className='button-large azul-escuro' onClick={cadastroDeUsuario}>Cadastre-se</button>
+                        <button className='medium preto' onClick={cadastroDeUsuario}>Cadastre-se</button>
                     </div>
                 </div>
             </div>

@@ -10,6 +10,7 @@ namespace Groups.Domain.Models.SqlServerModels
         public string? Tutor { get; set; }
         public string? Description { get; set; }
         public bool IsPublic { get; set; }
+        public Guid PublicId { get; set; }
 
         [JsonIgnore]
         public ICollection<Category>? Categories { get; set; }

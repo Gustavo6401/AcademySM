@@ -1,12 +1,15 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 import CategoryGroups from "../../../domain/models/apis/groups/categoryGroups";
+import { CategoryGroupsViewModel } from "../../../domain/models/viewModels/categoryGroupsViewModel";
 
 export default class GroupsCategoryAPI {
-    async create(groupsCategory: CategoryGroups): Promise<string> {
+    async create(groupsCategory: CategoryGroupsViewModel): Promise<string> {
         const bodyRequest = {
-            categoryId: groupsCategory.getCategoryId(),
-            groupId: groupsCategory.getGroupId()
+            categoryId: groupsCategory.categoryId,
+            publicGroupId: groupsCategory.publicGroupId
         }
+
+        console.log(bodyRequest)
 
         const api: AxiosInstance = axios.create({
             baseURL: import.meta.env.VITE_GROUPS_API,

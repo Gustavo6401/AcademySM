@@ -5,9 +5,7 @@ export default class GroupHomeApplicationServices {
     private groupsAPI: GroupsAPI = new GroupsAPI()
 
     async get(id: string): Promise<GroupHomeViewModel> {
-        const numberId: number = Number.parseInt(id)
-
-        const courses: GroupHomeViewModel = await this.groupsAPI.accessGroup(numberId)
+        const courses: GroupHomeViewModel = await this.groupsAPI.accessGroup(id)
 
         return courses
     }

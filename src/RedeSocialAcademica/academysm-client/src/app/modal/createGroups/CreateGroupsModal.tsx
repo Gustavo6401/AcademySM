@@ -40,7 +40,7 @@ const CreateGroupsModal: React.FC<CreateGroupsModalProps> = ({ isOpen, onClose }
             return            
         } 
 
-        var group: Courses = new Courses(0, name, level, tutor, description, isPublic)
+        var group: Courses = new Courses(0, name, level, tutor, description, isPublic, '')
 
         var response = await services.create(group, selectedCategoryId)
 

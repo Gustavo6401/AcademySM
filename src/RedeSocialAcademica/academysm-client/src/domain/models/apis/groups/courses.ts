@@ -5,8 +5,10 @@ export default class Courses {
     private tutor: string
     private description: string
     private isPublic: boolean
+    private publicId: string
 
-    constructor(id: number, name: string, level: string, tutor: string, description: string, isPublic)
+    constructor(id: number, name: string, level: string, tutor: string, description: string, isPublic: boolean,
+        publicId: string)
     {
         this.id = id
         this.name = name
@@ -14,6 +16,7 @@ export default class Courses {
         this.tutor = tutor
         this.description = description
         this.isPublic = isPublic
+        this.publicId = publicId
     }
     // Getters
     public getId(): number {
@@ -40,6 +43,10 @@ export default class Courses {
         return this.isPublic
     }
 
+    public getPublicId(): string {
+        return this.publicId
+    }
+
     // Setters
     public setId(id: number): void {
         this.id = id;
@@ -63,5 +70,9 @@ export default class Courses {
 
     public setIsPublic(isPublic: boolean): void {
         this.isPublic = isPublic
+    }
+
+    public setPublicId(publicId: string): void {
+        this.publicId = publicId
     }
 }

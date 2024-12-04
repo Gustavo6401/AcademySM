@@ -39,7 +39,7 @@ export default class RoomsAPI {
      * 
      * Gets the Room Name, and prepares to get roomsUrl.
      */
-    async getAsync(groupId: number): Promise<string> {
+    async getAsync(groupId: string): Promise<string> {
         const api: AxiosInstance = axios.create({
             baseURL: import.meta.env.VITE_GROUPS_API,
             withCredentials: true

@@ -1,14 +1,14 @@
 export default class CreateGroupViewModel {
-    private groupId: number
+    private groupId: string
     private message: string
 
-    constructor(groupId: number, message: string) {
+    constructor(groupId: string, message: string) {
         this.groupId = groupId
         this.message = message
     }
 
     // Getters
-    public getGroupId(): number {
+    public getGroupId(): string {
         return this.groupId;
     }
 
@@ -17,7 +17,7 @@ export default class CreateGroupViewModel {
     }
 
     // Setters
-    public setGroupId(groupId: number): void {
+    public setGroupId(groupId: string): void {
         this.groupId = groupId;
     }
 

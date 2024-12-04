@@ -237,5 +237,13 @@ namespace CadastroUsuario.Presentation.ApplicationServices
 
             return userDetails;
         }
+
+        public async Task<UserPortfolio> Portfolio(Guid id)
+        {
+            UserPortfolio? portfolio = await _userRepository.Portfolio(id);
+            portfolio.AcademySMGroups = await _groupsUserAPI.GetParticipantGroups(id);
+
+            return portfolio!;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CadastroUsuario.Domain.Interfaces.Repositories.SqlServer;
 using CadastroUsuario.Domain.Interfaces.Services;
 using CadastroUsuario.Domain.Models;
+using CadastroUsuario.Domain.Models.API;
 using CadastroUsuario.Domain.Models.ControllerModels;
 using CadastroUsuario.Infra.Context;
 using CadastroUsuario.Infra.Repositories.SqlServer.Base;
@@ -47,6 +48,43 @@ namespace CadastroUsuario.Infra.Repositories.SqlServer
                 .FirstOrDefaultAsync();
 
             return login!;
+        }
+
+        public async Task<UserPortfolio> Portfolio(Guid id)
+        {
+            UserPortfolio? portfolio = await _context.ApplicationUser
+                .Where(u => u.Id == id)
+                .Select(u => new UserPortfolio
+                {
+                    UserId = id,
+                    UserName = u.FullName,
+                    Curriculum = u.Curriculum,
+                    ProfilePic = _context.ProfilePics
+                        .Where(pp => pp.UserId == u.Id
+                            && pp.IsActive == true)
+                        .Select(pp => pp.FileNameAndPath)
+                        .FirstOrDefault(),
+                    Courses = _context.EducationalBackground
+                        .Where(eb => eb.UserId == u.Id)
+                        .Select(c => new PortfolioCourses {
+                            CourseId = c.Id,
+                            Name = c.Course
+                        })
+                        .ToList(),
+                    Links = _context.Links
+                        .Where(eb => eb.UserId == u.Id)
+                        .Select(pl => new PortfolioLink
+                        {
+                            Id = pl.Id,
+                            Name = pl.ProfileName,
+                            Origin = pl.Origin,
+                            Link = pl.Link
+                        })
+                        .ToList()
+                })
+                .FirstOrDefaultAsync();
+
+            return portfolio!;
         }
 
         public override async Task UpdateAsync(ApplicationUser entity)

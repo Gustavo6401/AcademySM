@@ -21,5 +21,16 @@ namespace CadastroUsuario.Infra.API.Groups
 
             return list ?? new List<GroupsUsers>();
         }
+
+        public async Task<List<ParticipantGroup>> GetParticipantGroups(Guid userId)
+        {
+            HttpResponseMessage response = await _client.GetAsync($"https://localhost:7286/api/UserGroup/GetParticipantGroups?userId={userId}");
+
+            string json = await response.Content.ReadAsStringAsync();
+
+            List<ParticipantGroup>? list = JsonConvert.DeserializeObject<List<ParticipantGroup>>(json);
+
+            return list ?? new List<ParticipantGroup>();
+        }
     }
 }

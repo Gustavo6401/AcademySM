@@ -1,13 +1,13 @@
 import Post from "../post"
 
 export default class GroupHomeViewModel {
-    private id: number
+    private id: string
     private name: string
     private level: string
     private description: string
     private posts: Array<Post>
 
-    constructor(id: number, name: string, level: string, description: string, posts: Array<Post>) {
+    constructor(id: string, name: string, level: string, description: string, posts: Array<Post>) {
         this.id = id
         this.name = name
         this.level = level
@@ -16,7 +16,7 @@ export default class GroupHomeViewModel {
     }
 
     // Getters
-    public getId(): number {
+    public getId(): string {
         return this.id;
     }
 
@@ -37,7 +37,7 @@ export default class GroupHomeViewModel {
     }
 
     // Setters
-    public setId(id: number): void {
+    public setId(id: string): void {
         this.id = id;
     }
 

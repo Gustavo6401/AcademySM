@@ -3,7 +3,6 @@ using Groups.Domain.Interfaces.Controllers;
 using Groups.Domain.Models.SqlServerModels;
 using Groups.Domain.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Groups.Presentnation.Controllers;
@@ -20,9 +19,20 @@ public class GroupController : ControllerBase, IGroupController
 
     [HttpGet("AccessGroup")]
     [Authorize]
-    public async Task<ActionResult<GroupsHomeViewModel>> AccessGroup(int id)
+    public async Task<ActionResult<GroupsHomeViewModel>> AccessGroup(Guid id)
     {
-        string role = User.FindFirst($"GroupRole-{id}")?.Value!;
+        /*
+         * en
+         * I have to avoid this, but we have two searchs in the database. Somewhere,
+         *  maybe we have to modify UserId's.
+         * 
+         * pt-Br
+         * Eu tenho que evitar isso, mas nós temos duas pesquisas no banco de dados, de alguma forma, talvez
+         * nós tenhamos que modificar os Ids do usuário.
+         */
+        int groupId = await _applicationServices.GetIdByPublicId(id);
+
+        string role = User.FindFirst($"GroupRole-{groupId}")?.Value!;
 
         // If the role is null or white space it means that the user is not able to access the group.
         if(string.IsNullOrWhiteSpace(role))
@@ -39,19 +49,9 @@ public class GroupController : ControllerBase, IGroupController
     [Authorize(AuthenticationSchemes = "CookieAuth")]
     public async Task<ActionResult<CreateGroupViewModel>> Create(Courses courses)
     {
-        await _applicationServices.Create(courses);
-        int groupId = await _applicationServices.GetIdByName(courses.Name!);
+        Guid id = await _applicationServices.Create(courses);
 
-        return Ok(new CreateGroupViewModel { Message = "Grupo Criado com Sucesso!", GroupId = groupId });
-    }
-
-    [HttpGet("GetById")]
-    [AllowAnonymous]
-    public async Task<ActionResult<Courses>> GetById(int id)
-    {
-        Courses group = await _applicationServices.Get(id);
-
-        return Ok(group);
+        return Ok(new CreateGroupViewModel { Message = "Grupo Criado com Sucesso!", GroupId = id });
     }
 
     /// <summary>
@@ -112,6 +112,22 @@ public class GroupController : ControllerBase, IGroupController
         // an Student "Aluno", or a Professor. 
 
         // This is the main function of User.Find First, this is going to search for user's roles.
+        string role = User.FindFirst($"GroupRole-{groupId}")?.Value!;
+
+        if(role != "Professor")
+        {
+            return Ok(false);
+        }
+
+        return Ok(true);
+    }
+
+    [HttpGet("IsTeacher")]
+    [Authorize]
+    public async Task<ActionResult<bool>> IsTeacher(Guid id)
+    {
+        int groupId = await _applicationServices.GetIdByPublicId(id);
+
         string role = User.FindFirst($"GroupRole-{groupId}")?.Value!;
 
         if(role != "Professor")

@@ -1,10 +1,10 @@
 export default class GroupViewModel {
-    private groupId: number
+    private groupId: string
     private groupTitle: string
     private groupLevel: string
     private groupCategoryIcon: string
 
-    constructor(groupId: number, groupTitle: string, groupLevel: string, groupCategoryIcon: string) {
+    constructor(groupId: string, groupTitle: string, groupLevel: string, groupCategoryIcon: string) {
         this.groupId = groupId
         this.groupTitle = groupTitle
         this.groupLevel = groupLevel
@@ -12,7 +12,7 @@ export default class GroupViewModel {
     }
 
     // Getters
-    public getGroupId(): number {
+    public getGroupId(): string {
         return this.groupId;
     }
 
@@ -29,7 +29,7 @@ export default class GroupViewModel {
     }
 
     // Setters
-    public setGroupId(groupId: number): void {
+    public setGroupId(groupId: string): void {
         this.groupId = groupId;
     }
 

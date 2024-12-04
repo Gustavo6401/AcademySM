@@ -62,7 +62,7 @@ namespace CadastroUsuarioTest.Presentation.Controllers
             var response = await _controller.Create(background);
             var okResult = response.Result as OkObjectResult;
 
-            string resposta = okResult.Value! as string;
+            string? resposta = okResult!.Value! as string;
 
             Assert.AreEqual(resposta, "Formação Cadastrada com Sucesso!");
         }

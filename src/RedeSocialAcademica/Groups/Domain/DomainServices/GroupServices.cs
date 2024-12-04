@@ -31,7 +31,7 @@ namespace Groups.Domain.DomainServices
         public bool ValidateName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException("Descrição do Grupo Inválida!");
+                throw new ArgumentException("Nome do Grupo Inválido!");
 
             return true;
         }

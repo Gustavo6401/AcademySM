@@ -3,6 +3,6 @@
     public class CreateGroupViewModel
     {
         public string? Message { get; set; }
-        public int GroupId { get; set; }
+        public Guid GroupId { get; set; }
     }
 }

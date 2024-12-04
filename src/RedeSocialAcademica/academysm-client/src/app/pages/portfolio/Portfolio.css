@@ -1,0 +1,68 @@
+.userProfile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.userProfile-coursesFormations,
+.userProfile-educationalBackgrounds,
+.userProfile-coursesLinks {
+    background-color: white;
+}
+
+.userProfile-coursesFormations,
+.userProfile-myCourses,
+.userProfile-links {
+    width: 25vw;
+    color: var(--cinza-escuro);
+}
+
+.userProfile-asmCoursesComponent {
+    background-color: var(--vermelho);
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+}
+
+    .userProfile-asmCoursesComponent h3,
+    .userProfile-asmCoursesComponent i,
+    .userProfile-educationalBackgrounds h3,
+    .userProfile-links h3 {
+        font-size: 22px;
+        margin-left: 10px;
+    }
+
+.userProfile-educationalBackgrounds h3 {
+    color: black;
+}
+
+.userProfile-curriculum {
+    background-color: white;
+    width: 45vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.userProfile-profilePic {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    margin: 10px;
+}
+
+.userProfile-asmLinksComponent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+
+.userProfile-asmLinksComponent h3,
+.userProfile-asmLinksComponent i {
+    color: var(--vermelho);
+    margin-left: 10px;
+}

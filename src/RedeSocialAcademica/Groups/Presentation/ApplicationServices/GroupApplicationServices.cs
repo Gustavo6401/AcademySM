@@ -16,17 +16,19 @@ namespace Groups.Presentation.ApplicationServices
             _services = services;
             _repository = repository;
         }
-        public async Task<GroupsHomeViewModel> AccessGroup(int id)
+        public async Task<GroupsHomeViewModel> AccessGroup(Guid id)
         {
             GroupsHomeViewModel? group = await _repository.AccessGroup(id);
 
             return group!;
         }
-        public async Task Create(Courses group)
+        public async Task<Guid> Create(Courses group)
         {
             _services.ValidateOnCreate(group);
 
-            await _repository.Create(group);
+            Guid id = await _repository.Create(group);
+
+            return id;
         }
 
         public async Task Delete(int id)
@@ -36,6 +38,15 @@ namespace Groups.Presentation.ApplicationServices
 
         public async Task<Courses> Get(int id)
         {
+            /*
+             * en
+             * I use the method's overload to search by an Guid. Public Auto_increment Ids is an security
+             * failure, so my main goal now is to search for ALL of those failures and correct it.
+             * 
+             * pt-Br
+             * Eu uso a sobrecarga de métodos para buscar por um Guid. Ids auto incrementais públicos são uma
+             * falha de segurança, então meu objetivo principal é buscar TODAS essas falhas e corrigi-las.
+             */
             Courses? group = await _repository.Get(id);
 
             return group!;
@@ -72,6 +83,13 @@ namespace Groups.Presentation.ApplicationServices
         public async Task<int> GetIdByName(string name)
         {
             int groupId = await _repository.GetIdByName(name);
+
+            return groupId;
+        }
+
+        public async Task<int> GetIdByPublicId(Guid id)
+        {
+            int groupId = await _repository.GetIdByPublicId(id);
 
             return groupId;
         }

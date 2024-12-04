@@ -3,6 +3,7 @@ import CategoryGroups from "../../domain/models/apis/groups/categoryGroups";
 import Courses from "../../domain/models/apis/groups/courses";
 import GroupsUsers from "../../domain/models/apis/groups/groupsUsers";
 import CreateGroupViewModel from "../../domain/models/apis/groups/return/createGroupViewModel";
+import { CategoryGroupsViewModel } from "../../domain/models/viewModels/categoryGroupsViewModel";
 import GroupsAPI from "../../infra/api/groups/groupsAPI";
 import GroupsCategoryAPI from "../../infra/api/groups/groupsCategoryAPI";
 import GroupsUserAPI from "../../infra/api/groups/groupsUserAPI";
@@ -16,10 +17,14 @@ export default class CreateGroupViewServices {
     private userAPI: ApplicationUserAPI = new ApplicationUserAPI()
 
     async create(groups: Courses, categoryId: number): Promise<string> {
-        var result: CreateGroupViewModel = await this.groupsAPI.create(groups)
+        let result: CreateGroupViewModel = await this.groupsAPI.create(groups)
 
-        var groupsCategory: CategoryGroups = new CategoryGroups(categoryId, result.getGroupId())
-        await this.groupsCategoryAPI.create(groupsCategory)
+        let groupsCateogryViewModel: CategoryGroupsViewModel = {
+            categoryId: categoryId,
+            publicGroupId: result.getGroupId()
+        }
+
+        await this.groupsCategoryAPI.create(groupsCateogryViewModel)
 
         var userId: string = localStorage.getItem('userId') || ''
 

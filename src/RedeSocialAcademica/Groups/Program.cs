@@ -80,6 +80,7 @@ builder.Services.AddScoped<IPostVoteApplicationServices, PostVoteApplicationServ
 builder.Services.AddScoped<ICommentApplicationServices, CommentApplicationServices>();
 builder.Services.AddScoped<IAssignmentSentApplicationServices, AssignmentSentApplicationServices>();
 builder.Services.AddScoped<IConversationUserApplicationServices, ConversationUserApplicationServices>();
+builder.Services.AddScoped<IGroupCategoryApplicationServices, GroupCategoryApplicationServices>();
 
 builder.Services.AddScoped<RoomsRepository>();
 
@@ -128,7 +129,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors(builder => builder
-    .WithOrigins("https://localhost:5173", "https://localhost:7000")
+    .WithOrigins("https://localhost:5173", "https://localhost:7000", "http://localhost:5003")
     .AllowCredentials()
     .AllowAnyHeader()
     .AllowAnyMethod());

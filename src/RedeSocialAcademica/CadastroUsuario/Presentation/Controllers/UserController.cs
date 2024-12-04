@@ -1,6 +1,7 @@
 ﻿using CadastroUsuario.Domain.Interfaces.ApplicationServices;
 using CadastroUsuario.Domain.Interfaces.Controllers;
 using CadastroUsuario.Domain.Models;
+using CadastroUsuario.Domain.Models.API;
 using CadastroUsuario.Domain.Models.ControllerModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -46,9 +47,9 @@ namespace CadastroUsuario.Presentation.Controllers
         {
             try
             {
-                if(User.Identity!.Name != id.ToString())
+                if(User.FindFirst(ClaimTypes.NameIdentifier)?.Value! != id.ToString())
                 {
-                    return Unauthorized();
+                    return Forbid();
                 }
 
                 await _applicationServices.DeleteAsync(id);
@@ -205,6 +206,15 @@ namespace CadastroUsuario.Presentation.Controllers
             await _applicationServices.ModifyAuthCookie(userId);
 
             return Ok();
+        }
+
+        [HttpGet("/Portfolio")]
+        [AllowAnonymous]
+        public async Task<UserPortfolio> Portfolio(Guid id)
+        {
+            UserPortfolio? userPortfolio = await _applicationServices.Portfolio(id);
+
+            return userPortfolio;
         }
     }
 }

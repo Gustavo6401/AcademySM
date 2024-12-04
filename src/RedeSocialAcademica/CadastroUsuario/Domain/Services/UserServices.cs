@@ -203,13 +203,13 @@ namespace CadastroUsuario.Domain.Services
         {
             IUserServices services = new UserServices();
 
-            services.ValidateActualCourse(user.ActualCourse!);
+            // services.ValidateActualCourse(user.ActualCourse!);
             services.ValidateBirthDate(user.BirthDate);
-            services.ValidateEducationDegree(user.EducationalDegree!);
+            // services.ValidateEducationDegree(user.EducationalDegree!);
             services.ValidateEmail(user.EMail!);
             services.ValidateFullName(user.FullName!);
             services.ValidatePassword(user.Password!);
-            services.ValidatePhoneNumber(user.Phone!);
+            // services.ValidatePhoneNumber(user.Phone!);
 
             return true;
         }

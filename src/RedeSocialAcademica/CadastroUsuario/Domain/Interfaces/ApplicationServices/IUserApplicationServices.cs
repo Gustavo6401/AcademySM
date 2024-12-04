@@ -1,4 +1,5 @@
 ﻿using CadastroUsuario.Domain.Models;
+using CadastroUsuario.Domain.Models.API;
 using CadastroUsuario.Domain.Models.ControllerModels;
 
 namespace CadastroUsuario.Domain.Interfaces.ApplicationServices
@@ -47,5 +48,6 @@ namespace CadastroUsuario.Domain.Interfaces.ApplicationServices
         Task<ApplicationUser> GetByEmail(string email);
         Task ModifyAuthCookie(Guid id);
         Task<UserDetailsReturn> UserDetails(Guid id);
+        Task<UserPortfolio> Portfolio(Guid id);
     }
 }

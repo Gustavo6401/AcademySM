@@ -11,23 +11,28 @@ import Videoconference from '../src/app/pages/videoconference/Videoconference.js
 import Tarefas from '../src/app/pages/tarefas/Tarefas.js'
 import Privacidade from './app/pages/privacidade/Privacidade.jsx'
 import Vendas from './app/pages/vendas/Vendas.jsx'
-import UserProfile from './app/pages/userProfile/UserProfile.js'
+import UserProfile from './app/pages/portfolio/Portfolio.js'
+import CreateUser from './app/pages/createUser/createUser.js'
+import './Spaces.css'
 
 function App() {
-    const[Component, setComponent] = useState(() => Login)
+    const[Component, setComponent] = useState(() => Vendas)
 
     const navigation = (path: string) => {      
         let Component
 
         // Verifies Whether we have more digits in the URL after /DetalhesUsuario, using the flag d+$
+        const userProfileRegex: RegExp = /^\/Portfolio\/[a-fA-F0-9-]+$/
         const userDetailsRegex: RegExp = /^\/DetalhesUsuario\/[a-fA-F0-9-]+$/
-        const groupHomeRegex: RegExp = /^\/Grupos\/Home\/\d+$/;
-        const tarefasRegex: RegExp = /^\/Tarefas\/\d+$/
-        const videoConferenciaRegex: RegExp = /^\/Videoconferencia\/\d+$/
-        const tarefaRegex: RegExp = /^\/Tarefa\/\d+$/
+        const groupHomeRegex: RegExp = /^\/Grupos\/Home\/[a-fA-F0-9-]+$/
+        const tarefasRegex: RegExp = /^\/Tarefas\/[a-fA-F0-9-]+$/
+        const videoConferenciaRegex: RegExp = /^\/Videoconferencia\/[a-fA-F0-9-]+$/
+        const tarefaRegex: RegExp = /^\/Tarefa\/[a-fA-F0-9-]+$/
 
         if (userDetailsRegex.test(path)) {
             Component = DetalhesUsuario
+        } else if (userProfileRegex.test(path)) {
+            Component = UserProfile
         } else if (groupHomeRegex.test(path)) {
             Component = GruposHomePage
         } else if (tarefasRegex.test(path)) {
@@ -42,7 +47,7 @@ function App() {
 
             switch (path) {
                 case '/CadastroDeUsuario':
-                    Component = CadastroUsuario
+                    Component = CreateUser
                     break
                 case '/GeradorDeSenhas':
                     Component = PasswordGenerator

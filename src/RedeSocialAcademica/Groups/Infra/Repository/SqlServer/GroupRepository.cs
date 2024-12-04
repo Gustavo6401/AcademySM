@@ -15,23 +15,57 @@ namespace Groups.Infra.Repository.SqlServer
             _context = context;
         }
 
-        public async Task<GroupsHomeViewModel> AccessGroup(int id)
+        public async Task<GroupsHomeViewModel> AccessGroup(Guid id)
         {
-            List<Post>? list = await _context.Posts.Where(p => p.GroupId == id)
-                .ToListAsync();
-
-            GroupsHomeViewModel? groupsHomeViewModel = await _context.Courses.Where(g => g.Id == id)
+            GroupsHomeViewModel? groupsHomeViewModel = await _context.Courses.Where(g => g.PublicId == id)
                 .Select(g => new GroupsHomeViewModel
                 {
-                    Id = g.Id,
+                    Id = g.PublicId,
                     Name = g.Name,
                     Level = g.Level,
                     Description = g.Description,
-                    Posts = list
+                    Posts = _context.Posts.Where(p => p.GroupId == g.Id)
+                        .ToList()
                 })
                 .FirstOrDefaultAsync();
 
             return groupsHomeViewModel!;
+        }
+
+        /// <summary>
+        /// en
+        /// Group's Ids is going to be used in the Front-End
+        /// 
+        /// pt-Br
+        /// Os Ids dos Grupos serão usados no Front-End.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public override async Task<Guid> Create(Courses entity)
+        {
+            _context.Courses.Add(entity);
+
+            await _context.SaveChangesAsync();
+
+            return entity.PublicId;
+        }
+
+        /// <summary>
+        /// en
+        /// This method is used a lot of time by internal methods and classes, like AnnouncementController 
+        /// and I have to deal with it.
+        /// 
+        /// pt-Br
+        /// Esse método é usado muitas vezes por métodos internos e classes, como AnnouncementController e eu
+        /// tenho que lidar com isso.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public override async Task<Courses> Get(int id)
+        {
+            Courses? course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
+
+            return course!;
         }
 
         public async Task<List<Courses>> GetAll()
@@ -75,12 +109,21 @@ namespace Groups.Infra.Repository.SqlServer
             return groupId;
         }
 
+        public async Task<int> GetIdByPublicId(Guid id)
+        {
+            int groupId = await _context.Courses.Where(g => g.PublicId == id)
+                .Select(g => g.Id)
+                .FirstOrDefaultAsync();
+
+            return groupId;
+        }
+
         public async Task<List<GroupsViewModel>> Groups()
         {
             List<GroupsViewModel> lista = await _context.Courses.Where(g => g.IsPublic == true)
                 .Select(g => new GroupsViewModel
                 {
-                    GroupId = g.Id,
+                    GroupId = g.PublicId,
                     GroupTitle = g.Name,
                     GroupLevel = g.Level,
                     GroupCategoryIcon = _context.Categories.Where(c =>

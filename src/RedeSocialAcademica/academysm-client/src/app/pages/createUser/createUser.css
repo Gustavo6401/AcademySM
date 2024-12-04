@@ -1,0 +1,77 @@
+.createUser {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* 
+    en
+    Used in Steps 2, 3 and 4 
+
+    pt-Br
+    Classe usada nos Componentes "Step" 2, 3 e 4.
+*/
+.createUserButtons {
+    margin: 10px;
+    width: 200px; /* pt-BR Largura dos Inputs - en input's width. */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.form-group-createUser {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.form-group-createUser input[type='checkbox'] {
+    margin: 10px;
+}
+
+.cadastroUsuarioViewInfos {
+    background-color: white;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    max-width: 300px;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.cadastroUsuarioViewInfos2 {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.cadastroUsuarioForm-1 {
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    border-radius: 10px;
+    padding: 40px;
+    max-width: 300px;
+    margin-top: 5px;
+}
+
+.cadastroUsuarioForm-1 input[type=checkbox] {
+    margin: 5px
+}
+
+.cadastroUsuarioViewInfos i {
+    font-size: 1rem;
+}

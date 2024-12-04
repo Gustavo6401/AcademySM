@@ -29,7 +29,6 @@ namespace CadastroUsuario.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ActualCourse")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -43,7 +42,6 @@ namespace CadastroUsuario.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Curriculum")
-                        .IsRequired()
                         .HasMaxLength(10000)
                         .HasColumnType("nvarchar(max)");
 
@@ -53,7 +51,6 @@ namespace CadastroUsuario.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("EducationalDegree")
-                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -63,7 +60,6 @@ namespace CadastroUsuario.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Institution")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -76,7 +72,6 @@ namespace CadastroUsuario.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -153,6 +148,40 @@ namespace CadastroUsuario.Migrations
                     b.ToTable("Institution");
                 });
 
+            modelBuilder.Entity("CadastroUsuario.Domain.Models.Links", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Origin")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("ProfileName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<Guid?>("UserId")
+                        .IsRequired()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Links");
+                });
+
             modelBuilder.Entity("CadastroUsuario.Domain.Models.ProfilePic", b =>
                 {
                     b.Property<Guid>("Id")
@@ -212,6 +241,17 @@ namespace CadastroUsuario.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("CadastroUsuario.Domain.Models.Links", b =>
+                {
+                    b.HasOne("CadastroUsuario.Domain.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Links")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+                });
+
             modelBuilder.Entity("CadastroUsuario.Domain.Models.ProfilePic", b =>
                 {
                     b.HasOne("CadastroUsuario.Domain.Models.ApplicationUser", "User")
@@ -237,6 +277,8 @@ namespace CadastroUsuario.Migrations
             modelBuilder.Entity("CadastroUsuario.Domain.Models.ApplicationUser", b =>
                 {
                     b.Navigation("EducationalBackgrounds");
+
+                    b.Navigation("Links");
 
                     b.Navigation("ProfilePictures");
 

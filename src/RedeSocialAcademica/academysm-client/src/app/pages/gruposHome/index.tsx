@@ -12,7 +12,7 @@ import './Index.css'
 
 export default function GruposHomePage() {
     const [groupDetails, setGroupDetails] = useState<GroupHomeViewModel | undefined>(undefined)
-    const [id, setId] = useState<number>(0)
+    const [id, setId] = useState<string>('')
     const [name, setName] = useState<string>('')
     const [level, setLevel] = useState<string>('')
     const [description, setDescription] = useState<string>('')

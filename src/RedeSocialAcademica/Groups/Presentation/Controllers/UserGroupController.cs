@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
 using System.Security.Claims;
+using Groups.Domain.Models.API;
+using Groups.Domain.Models.ViewModels;
 
 namespace Groups.Presentation.Controllers
 {
@@ -19,8 +21,7 @@ namespace Groups.Presentation.Controllers
             _applicationServices = applicationServices;
         }
         [HttpPost]
-        [Authorize]
-        public async Task<ActionResult<string>> Create([FromBody] GroupsUsers users)
+        public async Task<ActionResult<string>> Create([FromBody] GroupsUsersViewModel users)
         {
             await _applicationServices.Create(users);
 
@@ -55,6 +56,15 @@ namespace Groups.Presentation.Controllers
         public async Task<ActionResult<List<GroupsUsers>>> GetByUserId(Guid userId)
         {
             List<GroupsUsers> list = await _applicationServices.GetByUserId(userId);
+
+            return Ok(list);
+        }
+
+        [HttpGet("GetParticipantGroups")]
+        [AllowAnonymous]
+        public async Task<ActionResult<List<ParticipantGroup>>> GetParticipantGroup(Guid userId)
+        {
+            List<ParticipantGroup>? list = await _applicationServices.GetParticipantGroups(userId);
 
             return Ok(list);
         }

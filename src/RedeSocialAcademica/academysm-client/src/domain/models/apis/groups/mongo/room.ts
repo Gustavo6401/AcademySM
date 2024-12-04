@@ -1,10 +1,10 @@
 export default class Room {
     private id: string
-    private groupId: number
+    private groupId: string
     private roomId: string
     private dateCreation: Date
 
-    constructor(id: string, groupId: number, roomId: string, dateCreation: Date) {
+    constructor(id: string, groupId: string, roomId: string, dateCreation: Date) {
         this.id = id
         this.groupId = groupId
         this.roomId = roomId
@@ -16,7 +16,7 @@ export default class Room {
         return this.id;
     }
 
-    public getGroupId(): number {
+    public getGroupId(): string {
         return this.groupId;
     }
 
@@ -33,7 +33,7 @@ export default class Room {
         this.id = id;
     }
 
-    public setGroupId(groupId: number): void {
+    public setGroupId(groupId: string): void {
         this.groupId = groupId;
     }
 

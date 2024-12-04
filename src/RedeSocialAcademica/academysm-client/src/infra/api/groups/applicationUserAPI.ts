@@ -26,4 +26,23 @@ export default class GroupsApplicationUserAPI {
             throw error
         }
     }
+
+    async deleteAsync(id: string) {
+        try {
+            await this.api.delete(`/api/ApplicationUser?id=${id}`)
+        } catch (error: any) {
+            if (error.response) {
+                console.error('Erro: ', error.response.data)
+                console.log('Mensagem: ', error.response.message)
+                console.log('Status: ', error.response.status)
+                console.log('Headers: ', error.response.headers)
+            } else if (error.request) {
+                console.error('Nenhuma Resposta Recebida: ', error.request)
+            } else {
+                console.error('Erro na Configuração da Requisição')
+            }
+
+            throw error
+        }
+    }
 }

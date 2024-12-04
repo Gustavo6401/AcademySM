@@ -2,13 +2,13 @@ export default class GroupsUsers {
     private id: number
     private role: string
     private userId: string
-    private groupId: number
+    private publicGroupId: string
 
-    constructor(id: number, role: string, userId: string, groupId: number) {
+    constructor(id: number, role: string, userId: string, publicGroupId: string) {
         this.id = id
         this.role = role
         this.userId = userId
-        this.groupId = groupId
+        this.publicGroupId = publicGroupId
     }
 
     // Getters
@@ -24,8 +24,8 @@ export default class GroupsUsers {
         return this.userId;
     }
 
-    public getGroupId(): number {
-        return this.groupId;
+    public getPublicGroupId(): string {
+        return this.publicGroupId;
     }
 
     // Setters
@@ -41,7 +41,7 @@ export default class GroupsUsers {
         this.userId = userId;
     }
 
-    public setGroupId(groupId: number): void {
-        this.groupId = groupId;
+    public setGroupId(publicGroupId: string): void {
+        this.publicGroupId = publicGroupId;
     }
 }

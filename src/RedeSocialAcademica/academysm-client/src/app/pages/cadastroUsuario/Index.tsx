@@ -2,9 +2,6 @@ import Navbar from '../../components/navbar/index.jsx'
 import CourseStatus from '../../components/courseStatus/Index.tsx'
 import '../cadastroUsuario/Index.css'
 import GrauFormacao from '../../components/formacaoAtual/Index.jsx'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap-icons/font/bootstrap-icons.css'
-import 'bootstrap'
 import { useState, ChangeEvent, useRef } from 'react'
 import EducationalBackground from '../../../domain/models/apis/user/educationalBackground.js'
 import ApplicationUser from '../../../domain/models/apis/user/applicationUser.js'
@@ -13,6 +10,7 @@ import ProfilePic from '../../../domain/models/apis/user/profilePic.js'
 import CadastroUsuarioViewServices from '../../services/cadastroUsuarioViewServices.js'
 import navigateTo from '../../../infra/navigation/navigation.js'
 import EduBackground from '../../components/educationalBackgrounds/educBackground.js'
+import Links from '../../../domain/models/apis/user/links.ts'
 
 export default function CadastroUsuario() {
     const services = new CadastroUsuarioViewServices()
@@ -129,7 +127,7 @@ export default function CadastroUsuario() {
             ''
         )
 
-        const response: string = await services.create(applicationUser, groupsApplicationUser, educationalBackgroundList, profilePicData, file)
+        const response: string = await services.create(applicationUser, groupsApplicationUser, educationalBackgroundList, profilePicData, file, new Array<Links>())
 
         alert(response)
     }

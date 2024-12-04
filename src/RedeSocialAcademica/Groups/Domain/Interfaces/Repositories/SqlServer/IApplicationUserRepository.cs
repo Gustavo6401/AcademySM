@@ -1,4 +1,5 @@
 ﻿using Groups.Domain.Interfaces.Repositories.SqlServer.Base;
+using Groups.Domain.Models.API;
 using Groups.Domain.Models.SqlServerModels;
 
 namespace Groups.Domain.Interfaces.Repositories.SqlServer;

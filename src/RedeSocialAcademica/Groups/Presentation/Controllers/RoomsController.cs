@@ -1,4 +1,5 @@
-﻿using Groups.Domain.Models.MongoDBModels.Rooms;
+﻿using Groups.Domain.Interfaces.ApplicationServices;
+using Groups.Domain.Models.MongoDBModels.Rooms;
 using Groups.Infra.Repository.MongoDB.RoomsDataPersistence;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -12,8 +13,10 @@ namespace Groups.Presentation.Controllers
     public class RoomsController : ControllerBase
     {
         private readonly RoomsRepository _repository;
-        public RoomsController(RoomsRepository repository)
+        private readonly IGroupApplicationServices _applicationServices;
+        public RoomsController(RoomsRepository repository, IGroupApplicationServices applicationServices)
         {
+            _applicationServices = applicationServices;
             _repository = repository;
         }
 
@@ -21,7 +24,10 @@ namespace Groups.Presentation.Controllers
         [Authorize]
         public async Task<ActionResult> Create([FromBody] Room room)
         {
-            string role = User.FindFirst($"GroupRole-{room.GroupId}")?.Value!;
+            Guid publicId = Guid.Parse(room.GroupId!);
+            int id = await _applicationServices.GetIdByPublicId(publicId);
+
+            string role = User.FindFirst($"GroupRole-{id}")?.Value!;
 
             if (role != "Professor")
             {
@@ -35,7 +41,7 @@ namespace Groups.Presentation.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<string>> Index(int groupId) 
+        public async Task<ActionResult<string>> Index(string groupId) 
         {
             string roomId = await _repository.GetRecentRoomId(groupId);
 

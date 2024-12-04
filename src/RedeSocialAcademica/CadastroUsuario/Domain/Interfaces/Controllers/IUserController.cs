@@ -1,4 +1,5 @@
 ﻿using CadastroUsuario.Domain.Models;
+using CadastroUsuario.Domain.Models.API;
 using CadastroUsuario.Domain.Models.ControllerModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,5 +20,6 @@ namespace CadastroUsuario.Domain.Interfaces.Controllers
         Task<ActionResult> Update(ApplicationUser user);
         Task<ActionResult<string>> Logout();
         Task<ActionResult<UserDetailsReturn>> UserDetails(Guid id);
+        Task<UserPortfolio> Portfolio(Guid id);
     }
 }

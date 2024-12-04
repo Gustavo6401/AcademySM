@@ -6,7 +6,7 @@ import Post from '../../../domain/models/apis/groups/post';
 import GroupHomeViewModel from '../../../domain/models/apis/groups/return/groupHomeViewModel';
 
 export default class GroupsAPI {
-    async accessGroup(id: number): Promise<GroupHomeViewModel> {
+    async accessGroup(id: string): Promise<GroupHomeViewModel> {
         const api: AxiosInstance = axios.create({
             baseURL: import.meta.env.VITE_GROUPS_API,
             withCredentials: true
@@ -88,7 +88,7 @@ export default class GroupsAPI {
             const resultAny: any = resultado.data
 
             const coursesData: Courses = new Courses(resultAny.id, resultAny.name, resultAny.level,
-                resultAny.tutor, resultAny.description, resultAny.isPublic)
+                resultAny.tutor, resultAny.description, resultAny.isPublic, '')
 
             return coursesData
         } catch (error: any) {
@@ -145,6 +145,34 @@ export default class GroupsAPI {
 
         try {
             const resultado = await api.get(`/api/Group/IsProfessor?groupId=${groupId}`)
+
+            const result: boolean = resultado.data
+
+            return result
+        } catch (error: any) {
+            if (error.response) {
+                console.error('Erro: ', error.response.data)
+                console.log('Mensagem: ', error.response.message)
+                console.log('Status: ', error.response.status)
+                console.log('Headers: ', error.response.headers)
+            } else if (error.request) {
+                console.error('Nenhuma Resposta Recebida: ', error.request)
+            } else {
+                console.error('Erro na Configuração da Requisição')
+            }
+
+            throw error
+        }
+    }
+
+    async isTeacher(groupId: string): Promise<boolean> {
+        const api: AxiosInstance = axios.create({
+            baseURL: import.meta.env.VITE_GROUPS_API,
+            withCredentials: true
+        })
+
+        try {
+            const resultado = await api.get(`/api/Group/IsTeacher?id=${groupId}`)
 
             const result: boolean = resultado.data
 

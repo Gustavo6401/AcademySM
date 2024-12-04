@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\images\\2024-10-03 14-56-51Z-merda.jpeg"
     },
     {
+      "Id": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\images\\2024-10-31 18-26-16Z-foto_gustavo.jpg",
+      "PackagePath": "staticwebassets\\images\\2024-10-31 18-26-16Z-foto_gustavo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\images\\2024-10-31 18-44-50Z-foto_gustavo.jpg",
+      "PackagePath": "staticwebassets\\images\\2024-10-31 18-44-50Z-foto_gustavo.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FileServer.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

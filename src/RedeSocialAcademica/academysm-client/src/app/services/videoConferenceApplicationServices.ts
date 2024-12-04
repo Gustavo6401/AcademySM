@@ -11,26 +11,20 @@ export default class VideoConferenceApplicationServices {
     async createVideoConference(groupId: string): Promise<any> {             
         var response: string = await this.dailyAPI.createRoom()
 
-        var idGrupo: number = Number.parseInt(groupId)
-
-        var room = new Room('', idGrupo, response, new Date(Date.now()))
+        var room = new Room('', groupId, response, new Date(Date.now()))
         await this.roomAPI.createAsync(room)
 
         return response
     }
 
     async getVideoConferenceUrl(groupId: string): Promise<string> {
-        var idGrupo: number = Number.parseInt(groupId)
-
-        var roomUrl: string = await this.roomAPI.getAsync(idGrupo)
+        var roomUrl: string = await this.roomAPI.getAsync(groupId)
 
         return roomUrl
     }
 
     async isProfessorAccessing(groupId: string): Promise<boolean> {
-        const groupNumberId: number = Number.parseInt(groupId)
-
-        return await this.groupsAPI.isProfessor(groupNumberId)
+        return await this.groupsAPI.isTeacher(groupId)
     }
 
     roomUrlFromPageUrl(): string | null {

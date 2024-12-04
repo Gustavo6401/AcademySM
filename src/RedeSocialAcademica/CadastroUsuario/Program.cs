@@ -34,6 +34,7 @@ builder.Services.AddScoped<IUserServices, UserServices>();
 builder.Services.AddScoped<IEducationalBackgroundServices, EducationalBackgroundServices>();
 builder.Services.AddScoped<IUserLockoutServices, UserLockoutServices>();
 builder.Services.AddScoped<IProfilePicServices, ProfilePicServices>();
+builder.Services.AddScoped<ILinksServices, LinksServices>();
 
 builder.Services.AddScoped<PasswordHashing>();
 
@@ -44,6 +45,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserLockoutRepository, UserLockoutRepository>();
 builder.Services.AddScoped<IEducationalBackgroundRepository, EducationalBackgroundRepository>();
 builder.Services.AddScoped<IProfilePictureRepository, ProfilePicRepository>();
+builder.Services.AddScoped<ILinksRepository, LinksRepository>();
 
 builder.Services.AddScoped<ICookieConfiguration, CookieConfiguration>();
 
@@ -53,6 +55,7 @@ builder.Services.AddScoped<IUserApplicationServices, UserApplicationServices>();
 builder.Services.AddScoped<IEducationalBackgroundApplicationServices, EducationalBackgroundApplicationServices>();
 builder.Services.AddScoped<IProfilePicApplicationServices, ProfilePicApplicationServices>();
 builder.Services.AddScoped<IIntermediateTokenApplicationServices, IntermediateTokenApplicationServices>();
+builder.Services.AddScoped<ILinksApplicationServices, LinksApplicationServices>();
 
 builder.Services.AddSingleton<IAuthorizationHandler, MultipleSchemesHandler>();
 builder.Services.AddHttpContextAccessor();

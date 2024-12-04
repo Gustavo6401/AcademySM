@@ -24,5 +24,7 @@ namespace CadastroUsuario.Domain.Models
         public ICollection<UserLockout>? UserLockouts { get; set; }
         [JsonIgnore]
         public ICollection<ProfilePic>? ProfilePictures { get; set; }
+        [JsonIgnore]
+        public ICollection<Links>? Links { get; set; }
     }
 }

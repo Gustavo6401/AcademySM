@@ -2,20 +2,20 @@ import axios, { AxiosInstance } from "axios";
 import GroupsUsers from "../../../domain/models/apis/groups/groupsUsers";
 
 export default class GroupsUserAPI {
+    private api: AxiosInstance = axios.create({
+        baseURL: import.meta.env.VITE_GROUPS_API,
+        withCredentials: true
+    })
+
     async create(usuarioGrupo: GroupsUsers) : Promise<string> {
         const bodyRequest = {
             role: usuarioGrupo.getRole(),
             userId: usuarioGrupo.getUserId(),
-            groupId: usuarioGrupo.getGroupId()
+            publicGroupId: usuarioGrupo.getPublicGroupId()
         }
 
-        const api: AxiosInstance = axios.create({
-            baseURL: import.meta.env.VITE_GROUPS_API,
-            withCredentials: true
-        })
-
         try {
-            const resultado = await api.post('/api/UserGroup', bodyRequest)
+            const resultado = await this.api.post('/api/UserGroup', bodyRequest)
 
             const result: string = resultado.data
 

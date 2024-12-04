@@ -63,6 +63,11 @@ namespace Groups.Infra.Context
                 .Property(c => c.IsPublic)
                     .IsRequired();
 
+            modelBuilder.Entity<Courses>()
+                .Property(c => c.PublicId)
+                    .IsRequired()
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
             modelBuilder.Entity<ApplicationUser>()
                 .HasKey(u => u.Id);
 
@@ -197,6 +202,11 @@ namespace Groups.Infra.Context
                 .Property(gu => gu.Role)
                     .IsRequired()
                         .HasMaxLength(15);
+
+            modelBuilder.Entity<Assignment>()
+                .Property(a => a.PublicId)
+                    .IsRequired()
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
 
             modelBuilder.Entity<AssignmentSent>()
                 .HasKey(a => a.Id);
@@ -417,6 +427,16 @@ namespace Groups.Infra.Context
                     .WithOne(av => av.User)
                         .HasForeignKey(av => av.UserId)
                             .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Courses>()
+                .HasIndex(c => c.PublicId)
+                    .IsUnique()
+                        .HasDatabaseName("IX_Courses_PublicId");
+
+            modelBuilder.Entity<Assignment>()
+                .HasIndex(a => a.PublicId)
+                    .IsUnique()
+                        .HasDatabaseName("IX_Assignment_PublicId");
         }
     }
 }

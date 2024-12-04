@@ -10,6 +10,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\app\assets\fonts\" />
+    <Folder Include="src\app\components\createUser\formCreateUserStep3\" />
+    <Folder Include="src\app\components\createUser\formCreateUserStep4\" />
     <Folder Include="src\app\components\dailyComponents\chat\" />
     <Folder Include="src\app\components\dailyComponents\meetingInformation\" />
     <Folder Include="src\app\components\dailyComponents\icons\" />
@@ -43,7 +45,7 @@
     <Folder Include="src\app\pages\passwordGenerator\" />
     <Folder Include="src\domain\models\apis\groups\return\" />
     <Folder Include="src\domain\models\apis\user\" />
-    <Folder Include="src\domain\models\viewModels\" />
+    <Folder Include="src\domain\models\viewModels\portfolio\" />
     <Folder Include="src\domain\services\passwordValidator\allCharacterTypes\strategy\" />
     <Folder Include="src\infra\api\utils\" />
     <Folder Include="src\infra\api\user\" />
@@ -55,17 +57,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="src\app\NovaPasta1\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptConfiguration Remove="src\app\components\NovaPasta\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="src\app\components\NovaPasta\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptConfiguration Remove="src\app\modal\NovaPasta\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="src\app\modal\NovaPasta\**" />
   </ItemGroup>
 </Project>

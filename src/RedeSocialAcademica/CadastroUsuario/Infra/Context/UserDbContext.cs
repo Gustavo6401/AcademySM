@@ -15,10 +15,10 @@ namespace CadastroUsuario.Infra.Context
         public DbSet<Institution> Institution { get; set; }
         public DbSet<UserLockout> UserLockout { get; set; }
         public DbSet<ProfilePic> ProfilePics { get; set; }
+        public DbSet<Links> Links { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            
+        {          
 
             modelBuilder.Entity<ApplicationUser>()
                 .HasKey(u => u.Id);
@@ -40,8 +40,7 @@ namespace CadastroUsuario.Infra.Context
 
             modelBuilder.Entity<ApplicationUser>()
                 .Property(u => u.Phone)
-                    .HasMaxLength(30)
-                        .IsRequired();
+                    .HasMaxLength(30);
 
             modelBuilder.Entity<ApplicationUser>()
                 .Property(u => u.BirthDate)
@@ -49,23 +48,19 @@ namespace CadastroUsuario.Infra.Context
 
             modelBuilder.Entity<ApplicationUser>()
                 .Property(u => u.EducationalDegree)
-                    .HasMaxLength(30)
-                        .IsRequired();
+                    .HasMaxLength(30);
 
             modelBuilder.Entity<ApplicationUser>()
                 .Property(u => u.ActualCourse)
-                    .HasMaxLength(50)
-                        .IsRequired();
+                    .HasMaxLength(50);
 
             modelBuilder.Entity<ApplicationUser>()
                 .Property(u => u.Curriculum)
-                    .HasMaxLength(10000)
-                        .IsRequired();
+                    .HasMaxLength(10000);
 
             modelBuilder.Entity<ApplicationUser>()
                 .Property(u => u.Institution)
-                    .HasMaxLength(100)
-                        .IsRequired();
+                    .HasMaxLength(100);
 
             modelBuilder.Entity<ApplicationUser>()
                 .Property(u => u.ConsentPrivacyPolicy)
@@ -150,6 +145,24 @@ namespace CadastroUsuario.Infra.Context
                 .Property(p => p.DateCreation)
                     .IsRequired();
 
+            modelBuilder.Entity<Links>()
+                .HasKey(l => l.Id);
+
+            modelBuilder.Entity<Links>()
+                .Property(l => l.ProfileName)
+                    .HasMaxLength(100)
+                        .IsRequired();
+
+            modelBuilder.Entity<Links>()
+                .Property(l => l.Origin)
+                    .HasMaxLength(100)
+                        .IsRequired();
+
+            modelBuilder.Entity<Links>()
+                .Property(l => l.Link)
+                    .HasMaxLength(500)
+                        .IsRequired();
+
             modelBuilder.Entity<ApplicationUser>()
                 .HasMany(u => u.UserLockouts)
                     .WithOne(b => b.User)
@@ -171,6 +184,12 @@ namespace CadastroUsuario.Infra.Context
                             .IsRequired()
                                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(u => u.Links)
+                    .WithOne(l => l.ApplicationUser)
+                        .HasForeignKey(l => l.UserId)
+                            .IsRequired()
+                                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

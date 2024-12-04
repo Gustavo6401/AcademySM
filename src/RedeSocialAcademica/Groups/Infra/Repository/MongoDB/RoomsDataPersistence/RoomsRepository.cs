@@ -27,7 +27,7 @@ namespace Groups.Infra.Repository.MongoDB.RoomsDataPersistence
             await _roomsCollection.InsertOneAsync(document);
         }
 
-        public async Task<string> GetRecentRoomId(int groupId)
+        public async Task<string> GetRecentRoomId(string groupId)
         {
             RoomsDataDocument document = await _roomsCollection.Find(r => r.GroupId == groupId)
                 .SortByDescending(r => r.DateCreation)

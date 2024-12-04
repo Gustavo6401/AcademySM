@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ic+7is7Kiqjx+bl7SoHXieajuntL47k+McvhpSCwn1M=",
+  "Hash": "eBZIZKJMIMoVLO6Xa4dMP9bsZAULE9/+S7LZPG0KHG0=",
   "Source": "FileServer",
   "BasePath": "_content/FileServer",
   "Mode": "Default",
@@ -72,6 +72,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\2024-10-03 14-56-51Z-merda.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\images\\2024-10-31 18-26-16Z-foto_gustavo.jpg",
+      "SourceId": "FileServer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\",
+      "BasePath": "_content/FileServer",
+      "RelativePath": "images/2024-10-31 18-26-16Z-foto_gustavo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\2024-10-31 18-26-16Z-foto_gustavo.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\images\\2024-10-31 18-44-50Z-foto_gustavo.jpg",
+      "SourceId": "FileServer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\FileServer\\wwwroot\\",
+      "BasePath": "_content/FileServer",
+      "RelativePath": "images/2024-10-31 18-44-50Z-foto_gustavo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\2024-10-31 18-44-50Z-foto_gustavo.jpg"
     }
   ]
 }
