@@ -247,10 +247,110 @@ Pesquisem sobre ViewModels!
 
 Perceba que muitas classes que gerenciam a tabela Courses têm o nome "Groups" e não "Courses". Nesse contexto, *Groups* e *Courses* são exatamente a mesma coisa. Eu não consegui criar uma classe chamada Groups especialmente porque Groups era o nome do projeto, essa é a prova cabal de que ambas são a mesma coisa.
 
+##### Importante:
+
+Meu objetivo aqui é falar a respeito dos Guids em algumas tabelas. Em todos os dados públicos, é uma péssima ideia expôr ao usuário IDs auto-incrementais, nosso trabalho agora é substituir todos os endpoints existentes que exigem Ids auto-incrementais, coisa que já foi feito especialmente nas rotas públicas.
+
 ### Infra
 
 Assim como na API de Cadastro de Usuário, as classes na pasta "Infra", têm por objetivo realizar a comunicação com dependências externas e apesar de mais classes, a API de Grupos tem menos dependências externas. Resumidamente, eu separei as pastas de acordo com a sua funcionalidade.
 
 #### Authentication (Descontinuada)
 
-A pasta Authentication foi escrita especialmente **quando eu não sabia como a autenticação do ASP.Net Core funcionava.**
+A pasta Authentication foi escrita especialmente **quando eu não sabia como a autenticação do ASP.Net Core funcionava.** Em outras palavras, a pasta Authentication será excluída. 
+
+#### Context
+
+O objetivo da pasta Context é exatamente guardar as informações do DbContext da aplicação. Não é atoa que ela tem um único arquivo chamado `GroupsDbContext`.
+
+#### RabbitMQ
+
+A pasta RabbitMQ também será descartada, eu pensei em transferir Tokens Via RabbitMQ, mas isso é uma arquitetura antiga.
+
+#### Repository
+
+A pasta Repository é uma pasta que contém toda a lógica de transferência e envio de dados para as Bases de Dados, não é atoa que essa pasta é dividida entre SQLServer e MongoDB. A pasta SQL Server tem o seguinte padrão de nomenclatura: "Nome da Tabela" + "Repository", tais como GroupsRepository (que como dito anteriormente, seria o mesmo que Courses). Para a tabela de *Courses* ou CategoryRepository para a tabela Categories.
+
+E quanto à pasta MongoDB, cada pasta vai contar com dois arquivos: um arquivo DataDocument e um arquivo Repository, o arquivo DataDocument é importante para que haja a conversão entre uma string e o ObjectId do MongoDB. Não é atoa que existe inclusive um código para a conversão:
+
+``` csharp
+BsonClassMap.RegisterClassMap<Room>(rooms =>
+{
+    rooms.AutoMap();
+    rooms.MapIdProperty(r => r.Id)
+        .SetIdGenerator(ObjectIdGenerator.Instance);
+});
+```
+
+### Presentation
+
+Como mostrado antes, o objetivo da arquitetura da camada de apresentação é fazer a orquestração entre as camadas e criar a camada de controllers. 
+
+#### ApplicationServices
+
+Como eu havia dito, a camada de ApplicationServices contém as informações de orquestração entre as camadas de domínio e de Infraestrutura. Perceba a camada `DomainServices` que é a camada de serviços de domínio, tais como as validações de dados. 
+
+``` csharp
+public async Task<Guid> Create(Courses group)
+{
+    _services.ValidateOnCreate(group);
+
+    Guid id = await _repository.Create(group);
+
+    return id;
+}
+```
+
+Esse método por exemplo faz a criação de grupos e retorna o Id público para o usuário.
+
+#### Controller
+
+Já na camada de controllers, nós podemos fazer a comunicação direta entre servidor e cliente, além disso, retorno um Json (ou uma string) em grande parte dos métodos para responder à requisição do usuário.
+
+``` csharp
+[HttpPost]
+[Authorize(AuthenticationSchemes = "CookieAuth")]
+public async Task<ActionResult<CreateGroupViewModel>> Create(Courses courses)
+{
+    Guid id = await _applicationServices.Create(courses);
+
+    return Ok(new CreateGroupViewModel { Message = "Grupo Criado com Sucesso!", GroupId = id });
+}
+```
+
+## Principais Funcionalidades
+
+O objetivo da API de Grupos é exatamente o de cadastrar e manter os dados dos grupos em que os usuários entrarem, o que exige uma integração a bancos de dados SQL Server e MongoDB. O objetivo também seria o de paginar os dados enviados e exibi-los sob demanda, o que ficaria para futuras Features e mais especificamente para uma versão 1 ou dois. Enquanto escrevo, estamos na versão 0.4.0.
+
+## Explicação do Código:
+
+Alguns trechos de código devem ser explicados aqui na documentação
+
+### 1 - Índices Não Clusterizados no DbContext:
+
+``` csharp
+modelBuilder.Entity<Courses>()
+    .HasIndex(c => c.PublicId)
+        .IsUnique()
+            .HasDatabaseName("IX_Courses_PublicId");
+
+modelBuilder.Entity<Assignment>()
+    .HasIndex(a => a.PublicId)
+        .IsUnique()
+            .HasDatabaseName("IX_Assignment_PublicId");
+```
+
+O objetivo desse índice é exatamente facilitar nas buscas dos grupos e das tarefas dos usuários, o objetivo é que as buscas sejam feitas pelo Id público e não pelo Id Auto-Incremental, o Id Auto-Incremental ou será removido, ou será utilizado no Back-End para paginação ou para a criação das Roles. Caso você discorde por algum motivo do uso de Inteiros auto-incrementais, me informe na Aba Issues, digo isso porque eu tenho alguns questionamentos relacionados à essa arquitetura também. 
+
+Claro, nem preciso dizer que o campo IsUnique serve para que o Guid seja o único no mundo. Não é atoa que o nome é Unique Identifier. O número de Guids possíveis é semelhante ao número de átomos no Universo.
+
+### 2 - Ordenação dos Guids
+
+``` csharp
+modelBuilder.Entity<Courses>()
+    .Property(c => c.PublicId)
+        .IsRequired()
+            .HasDefaultValueSql("NEWSEQUENTIALID()");
+```
+
+O objetivo dos meus Guids é a ordenação baseada no Clock do meu sistema, por conta disso, eu criei um NewSequentialId() e todas as horas em que o banco de dados recebe um registro, ele cria um Guid baseado no Clock do sistema. Índice tendem a reduzir a eficiência de nossa base de dados, especialmente em operações de inserção. Isso se dá especialmente pelo funcionamento das árvores B, que são a estrutura de dados utilizada nos bancos de dados relacionais. É aí que entra a questão dos índices reduzirem a eficiência das operações de inserção de dados, especialmente porque exigem por vezes repetidos balanceamentos da árvore como um todo. E para evitar isso, tanto os IDs sequenciais quanto os Ids Auto-Incrementais são ordenados e por consequência, os registros de ambos os índices são inseridos ao final da árvore B.

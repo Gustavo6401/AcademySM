@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2XvwMcrAhU2fBz6Lg6fmmsyXtIMP7cUSLf36UezL0/g4QcYUqvP771aJwgTmKD8m8REqMed2qR3GW+DV2vtmYw==",
+  "dgSpecHash": "IMrM12BOqEc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySMMonolit\\RedeSocialAcademica\\Groups\\Groups.csproj",
+  "projectFilePath": "C:\\Users\\Gustavo\\Documents\\Gustavo TI\\Programação\\AcademySM\\AcademySM-Dezembro-3-2024\\AcademySM\\src\\RedeSocialAcademica\\Groups\\Groups.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gustavo\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Gustavo\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
