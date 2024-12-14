@@ -2,7 +2,7 @@
 
 Esse é o repositório oficial da versão de produção da Academy SM, podendo ser acessado por esse link: [Academy SM](https://academysm.com), mas vale lembrar: Não somos uma iniciativa 100% Open Source, mas sim, 50%, digo isso porque o repositório de desenvolvimento é um repositório fechado. 
 
-A Academy SM é um projeto brasileiro de empreendedorismo social com foco em pesquisadores e professores Universitários, o objetivo é proporcionar um ambiente fértil para a disseminação das ciências. 
+A Academy SM é um projeto brasileiro de empreendedorismo social com foco em pesquisadores e professores Universitários, o objetivo é proporcionar um ambiente fértil para a disseminação das ciências e para a disseminação do conhecimento como um todo. Onde os professores possam receber mais uma fonte de renda por seus trabalhos desenvolvidos, tanto dentro como fora da plataforma. Me inspirei especialmente pelo excelente trabalho feito pela Alexandra Elbakyan no Sci-Hub e decidi levá-lo a um outro nível possibilitando que a comunidade doe recompensas em dinheiro para os pesquisadores e para os professores de reforço.
 
 ## Como a Nossa Ideia Nasceu?
 
@@ -20,11 +20,13 @@ Além disso, temos diversos diferenciais de mercado em relação aos nossos conc
 - Portfólio;
 - Grupo de Networking Entre Professores Particulares e Criadores de Conteúdo Digital.
 
-Atualmente, na primeira versão da Academy SM estão disponíveis as features de Envio de Tarefas (não a correção) e as Chamadas de Vídeo. 
+Atualmente, na primeira versão da Academy SM estão disponíveis as features de Envio de Tarefas (não a correção) e as Chamadas de Vídeo, além disso, estamos nos empenhando para criar nosso próprio serviço de chamadas de vídeo Peer-to-Peer e features dedicadas a professores de reforço, como uma "Sala de Emergência", local esse em que um aluno poderá sair em busca de um professor de reforço em situações críticas. Isso foi conversado e acordado entre outros professores de reforço.
 
 # E Por que eu abriria o código dessa maneira? 🧐🤔
 
 Simples, quero receber sugestões, críticas acerca do código e principalmente tornar o meu SaaS o mais próximo o possível da comunidade. Para que a comunidade que utiliza o sistema possa auditar o sistema. Além disso, as features que estão em desenvolvimento atualmente estão em um repositório fechado também no Github.
+
+Além disso, penso que caso a AcademySM fuja do seu propósito principal que é o de ajudar a comunidade, especialmente professores e desenvolvedores, que alguém tenha os recursos necessários para iniciar tudo do absoluto zero. 
 
 # Nesse Caso, como eu faria para contribuir no Projeto?
 
@@ -44,4 +46,4 @@ O projeto foi escrito utilizando quatro linguagens: JavaScript, TypeScript, C# e
 
 Sejam muito bem-vindos à Academy SM. O link para a versão atual pode ser acessado por aqui: [Link Academy SM](https://academysm.com)
 
-O ser humano é naturalmente polímata!
+*O ser humano é naturalmente polímata!*
