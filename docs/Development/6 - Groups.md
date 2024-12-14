@@ -354,3 +354,32 @@ modelBuilder.Entity<Courses>()
 ```
 
 O objetivo dos meus Guids é a ordenação baseada no Clock do meu sistema, por conta disso, eu criei um NewSequentialId() e todas as horas em que o banco de dados recebe um registro, ele cria um Guid baseado no Clock do sistema. Índice tendem a reduzir a eficiência de nossa base de dados, especialmente em operações de inserção. Isso se dá especialmente pelo funcionamento das árvores B, que são a estrutura de dados utilizada nos bancos de dados relacionais. É aí que entra a questão dos índices reduzirem a eficiência das operações de inserção de dados, especialmente porque exigem por vezes repetidos balanceamentos da árvore como um todo. E para evitar isso, tanto os IDs sequenciais quanto os Ids Auto-Incrementais são ordenados e por consequência, os registros de ambos os índices são inseridos ao final da árvore B.
+
+### 3 - Conversão das strings em Bson Ids:
+
+``` csharp
+BsonClassMap.RegisterClassMap<Room>(rooms =>
+{
+    rooms.AutoMap();
+    rooms.MapIdProperty(r => r.Id)
+        .SetIdGenerator(ObjectIdGenerator.Instance);
+});
+```
+
+Esse código será utilizado para a conversão de todos os Ids do MongoDB, como previamente mostrado na API de Cadastro de Usuário. Eu criei a classe Room especialmente para que o Id fosse uma string e para que eu não violasse os princípios do Domain Driven Design, evitando assim, dependências externas na camada de domínio.
+
+**Migração para o .NET 9**
+
+Nosso servidor atualmente encontra-se com pouquíssima memória, por isso, a migração imediata do .Net 8 para o .Net 9 é algo discutido e está sendo implementada com uma certa lentidão. Não podemos fazer essa migração sem a devida análise de requisitos do .Net 9, especialmente porque issso poderia significar dias da aplicação não funcionando.
+
+## Contribuição 
+
+Você pode contribuir abrindo uma Issue para que conversemos sobre o código e para trazermos uma boa solução para o seu problema, a partir daí, nossa aplicação estará aberta ao seu Pull Request. É necessário um conhecimento na linguagem C# e no Framework ASP.Net Core.
+
+## Agradecimentos
+
+Muito obrigado pela atenção! Solicitamos que você também leia a próxima parte da documentação, a parte da API [FileServer](<7 - FileServer.md>)
+
+Muito obrigado pela atenção!
+
+*O ser humano é naturalmente polímata!*
